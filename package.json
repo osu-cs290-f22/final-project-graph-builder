@@ -5,5 +5,8 @@
     "express-handlebars": "^6.0.6",
     "handlebars": "^4.7.7",
     "html2canvas": "^1.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
