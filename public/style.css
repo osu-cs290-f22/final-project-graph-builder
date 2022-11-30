@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+  }
+
+.site-title {
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 80px;
+    font-weight: 100;
+    margin: 0 0 0 20px;
+    padding-top: 30px;
+  }
+  
+  #categorical-graph-container{
+    position: relative;
+    left: 200px;
+    top: 20px;
+  }
