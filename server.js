@@ -28,8 +28,8 @@ app.use(express.static('public'));
  * SETTING UP ARRAYS
  *******************/
 
-var allSpecs = JSON.parse(fs.readFileSync("availableSpecs.json"));
-var allInputs = JSON.parse(fs.readFileSync("allInputs.json"));
+const allSpecs = JSON.parse(fs.readFileSync("availableSpecs.json"));
+const allInputs = JSON.parse(fs.readFileSync("allInputs.json"));
 
 /***************
  * HTTP REQUESTS
@@ -40,18 +40,25 @@ var allInputs = JSON.parse(fs.readFileSync("allInputs.json"));
 
 /*app.get('/', function(req, res, next) {res.status(200).render("index")});*/
 
-
+function renderMaker(script, type, inputArr, specArr) {
+    function middleware(req, res, next) {
+        res.status(200).render("graphMaker", {
+            script: script,
+            type: type,
+            inputs: inputArr,
+            specs: specArr
+        }
+        )
+    }
+    return middleware;
+}
 
 //get the home page
 
 app.get('/', function(req, res, next) {res.status(200).sendFile("/public/index.html")});
 
-//test function, delete later
-app.get('/line', function(req, res, next) {
-    res.status(200).render("lineGr", {script: "lineChart.js", 
-                                        type: "Line Graph",
-                                        inputs: allInputs})
-});
+//test function, edit later
+app.get('/line', renderMaker("lineChart.js", "Line Graph", allInputs, allSpecs));
 
 
 app.post('/', function(req, res, next) {
