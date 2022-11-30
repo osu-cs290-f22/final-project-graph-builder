@@ -81,9 +81,7 @@ app.get('/view', function(req, res, next) {res.status(200).render("graphView", {
 
 
 
-app.post('/', function(req, res, next) {
-    //we will be using JSON
-});
+app.post('/', function(req, res, next) {console.log("App posted")});
 
 
 

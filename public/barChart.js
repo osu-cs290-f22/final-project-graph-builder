@@ -291,7 +291,7 @@ function createGraph () {
 }
 
 //Creates image to be saved
-function createImage(event)
+/*function createImage(event)
 {
     var graphImage
     var graph = document.getElementById("myChart")
@@ -302,5 +302,7 @@ function createImage(event)
     })
 }
 
+//publish button creates the graph.
+//not what I'm looking for
 var publishButton = document.getElementById("publish-button")
-publishButton.addEventListener("click", createImage)
+publishButton.addEventListener("click", createImage)*/
