@@ -1,3 +1,7 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
 #all-graphs {
     display: flex;
 }
@@ -7,21 +11,22 @@
     flex-wrap: wrap;
     border: 2px solid black;
     border-radius: 20px;
-    height: 55vh;
-    width: 90vw;
+    height: 60vh;
+    width: 85vw;
     margin: auto;
 }
 
 .image-box {
     width: 1000px;
-    margin: 15px auto;
     display: flex;
+    display: inline;
+    margin: auto;
 }
 
 .image-restrictions {
     max-width: 80vw;
     max-height: 40vh;
-    margin: auto;
+    margin: 15px;
 }
 
 .buttons-container {
@@ -48,10 +53,18 @@
     font-size: 10px;
 }
 
+.add-graph-button:hover{
+    cursor: pointer;
+}
+
 .like-button {
     background-color: blue;
     height: 25px;
     margin: auto 15px;
+}
+
+.like-button:hover {
+    cursor: pointer;
 }
 
 .like-counter-container {
@@ -70,19 +83,16 @@
     font-size: 13px;
 }
 
-.info-text {
-    width: 200px;
-    margin: auto;
-}
 
-.text-box {
+
+.info-text {
+    display: inline-block;
     display: flex;
     flex-wrap: wrap;
     width: 200px;
     margin: auto;
     font-size: 20px;
+    text-align: center;
 }
 
-.center-text {
-    margin: auto;
-}
+
