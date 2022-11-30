@@ -1,0 +1,22 @@
+[
+    {
+        "label": "Name",
+        "type": "text",
+        "extra": ""
+    },
+    {
+        "label": "Color",
+        "type": "text",
+        "extra": ""
+    },
+    {
+        "label": "Value",
+        "type": "number",
+        "extra": ""
+    },
+    {
+        "label": "Opacity",
+        "type": "number",
+        "extra": "max=\"100\" min=\"1\""
+    }
+]
