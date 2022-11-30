@@ -28,8 +28,11 @@ app.use(express.static('public'));
  * SETTING UP ARRAYS
  *******************/
 
-const allSpecs = JSON.parse(fs.readFileSync("availableSpecs.json"));
+const pbSpecs = JSON.parse(fs.readFileSync("pieBarSpecs.json"));
+const lineSpecs = JSON.parse(fs.readFileSync("lineSpecs.json"));
 const allInputs = JSON.parse(fs.readFileSync("allInputs.json"));
+
+const barInputs = [allInputs[1], allInputs[4]];
 
 /***************
  * HTTP REQUESTS
@@ -57,8 +60,17 @@ function renderMaker(script, type, inputArr, specArr) {
 
 app.get('/', function(req, res, next) {res.status(200).sendFile("/public/index.html")});
 
+//bar graph function
+app.get('/bar', renderMaker("barChart.js", "Bar Graph", barInputs, pbSpecs));
+
 //test function, edit later
-app.get('/line', renderMaker("lineChart.js", "Line Graph", allInputs, allSpecs));
+app.get('/line', renderMaker("lineChart.js", "Line Graph", allInputs, lineSpecs));
+
+//test function, edit later
+app.get('/pie', renderMaker("pieChart.js", "Line Graph", [], pbSpecs));
+
+//test function, edit later
+app.get('/lws', renderMaker("scatterAndLineGraph.js", "Scatter Plot", allInputs, lineSpecs));
 
 
 app.post('/', function(req, res, next) {
