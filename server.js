@@ -9,6 +9,7 @@ const { json } = require('express');
 //stuff we'll need speficially for this applicaton
 const Chart = require('chart');
 const html2canvas = require('html2canvas');
+const { request } = require('http');
 
 
 //app is how we'll use express
@@ -34,7 +35,7 @@ const allInputs = JSON.parse(fs.readFileSync("allInputs.json"));
 
 const barInputs = [allInputs[1], allInputs[4]];
 
-var graphPosts = JSON.parse(fs.readFileSync("postInfo.json"));
+var graphs = JSON.parse(fs.readFileSync("graphs.json"));
 
 /***************
  * HTTP REQUESTS
@@ -76,12 +77,15 @@ app.get('/lws', renderMaker("scatterAndLineGraph.js", "Scatter Plot", allInputs,
 
 //get the view
 //I will absolutely want to replace it with a post function once I get that to work
-app.get('/view', function(req, res, next) {res.status(200).render("graphView", {posts: graphPosts})})
+app.get('/view', function(req, res, next) {res.status(200).render("graphView", {posts: graphs})})
 
 
 
 
-app.post('/', function(req, res, next) {console.log("App posted")});
+app.post('/postig', function(req, res, next) {
+    console.log("got post", req.body.url)
+    fs.writeFileSync("graphs.json", req.body)
+});
 
 
 
