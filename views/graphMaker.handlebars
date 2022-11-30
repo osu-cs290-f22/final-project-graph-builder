@@ -1,23 +1,60 @@
 <html>
+    <head>
+        <meta charset="utf-8">
+
+        <!--For type, you specify the chart type and add "chart"
+        so if you wanted this page to be a pie chart page, type would be "Pie Chart"
+        if you wanted to make a bar graph, type would be "Bar Graph"-->
+
+        <title>{{type}}</title>
+
+        <link rel="stylesheet" href="graphStyles.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
+
+        <script src= "{{script}}" charset="utf-8" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    </head>
     <body>
-
-        <!--I want to replace this part with different criteria-->
-        <!--<div id = "graph-specs">
-        <div class="input-container">
-            <label class="graph-labels">Name:</label>
-            <div class="input-boxes-container">
-                <input type="text" class="input-boxes">
-            </div>
-            <label class="graph-labels">Value:</label>
-            <div class="input-boxes-container">
-                <input type="number" class="input-boxes">
-            </div>
-            <button type="button" id="submit-button"><i class="fas fa-plus"></i></button>
-        </div>
-        </div>-->
-
+        <a href="/homescreen.html">Back To Home</a>
+        <h2>{{type}} Creator</h2>    
         
+        <div>
+            <label>Title</label>
+            <div>
+                <input id="title-input" type="text">
+            </div>
+        </div>
+
+        <!--All of the inputs-->
+        {{#each inputs}}
+            {{> input}}
+        {{/each}}
+
+        <!--This is where all of the specs are-->
+        <div id = "graph-specs">
+        <div class="input-container">
+
+        <!--All of the specs-->
+        {{#each specs}}
+            {{> spec}}
+        {{/each}}
+
+        <!--The submit button-->
+        <button type="button" id="submit-button"><i class="fas fa-plus"></i></button>
+
+        </div>
+        </div>
 
         {{{body}}}
+
+        <div>
+            <button id="publish-button">Publish!</button>
+        </div>
+
+            
+        <div id = "chart-container" class = "chart">
+            <canvas id = "myChart"></canvas>
+        </div>
     </body>
 </html>

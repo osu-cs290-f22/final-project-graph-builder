@@ -34,6 +34,8 @@ const allInputs = JSON.parse(fs.readFileSync("allInputs.json"));
 
 const barInputs = [allInputs[1], allInputs[4]];
 
+var graphPosts = JSON.parse(fs.readFileSync("postInfo.json"));
+
 /***************
  * HTTP REQUESTS
  * Some of these are commented out.
@@ -60,17 +62,23 @@ function renderMaker(script, type, inputArr, specArr) {
 
 app.get('/', function(req, res, next) {res.status(200).sendFile("/public/index.html")});
 
-//bar graph function
+//get the bar graph
 app.get('/bar', renderMaker("barChart.js", "Bar Graph", barInputs, pbSpecs));
 
-//test function, edit later
+//get the line graph
 app.get('/line', renderMaker("lineChart.js", "Line Graph", allInputs, lineSpecs));
 
-//test function, edit later
+//get the pie chart
 app.get('/pie', renderMaker("pieChart.js", "Line Graph", [], pbSpecs));
 
-//test function, edit later
+//get the scatter plot
 app.get('/lws', renderMaker("scatterAndLineGraph.js", "Scatter Plot", allInputs, lineSpecs));
+
+//get the view
+//I will absolutely want to replace it with a post function once I get that to work
+app.get('/view', function(req, res, next) {res.status(200).render("graphView", {posts: graphPosts})})
+
+
 
 
 app.post('/', function(req, res, next) {
