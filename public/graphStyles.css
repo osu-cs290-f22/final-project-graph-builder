@@ -43,7 +43,8 @@ body{
 
 .input-container {
     display: flex;
-    width: 750px;
+    position: relative;
+    margin-top: 5px;
     background-color: gray;
 }
 
@@ -56,3 +57,19 @@ body{
     margin-top: auto;
     margin-bottom: auto;
 }
+
+#publish-button{
+    font-size: 15px;
+    background-color: limegreen;
+    position: relative;
+    top: 25px;
+    left: 0 px;
+}
+
+
+#chart-container{
+    position: relative;
+    top: 50px;
+    left: 85px;
+}
+
