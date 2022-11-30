@@ -1,3 +1,7 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
 #all-graphs {
     display: flex;
 }
@@ -7,7 +11,7 @@
     flex-wrap: wrap;
     border: 2px solid black;
     border-radius: 20px;
-    height: 55vh;
+    height: 60vh;
     width: 85vw;
     margin: auto;
 }
@@ -79,19 +83,16 @@
     font-size: 13px;
 }
 
-.info-text {
-    width: 200px;
-    margin: auto;
-}
 
-.text-box {
+
+.info-text {
+    display: inline-block;
     display: flex;
     flex-wrap: wrap;
     width: 200px;
     margin: auto;
     font-size: 20px;
+    text-align: center;
 }
 
-.center-text {
-    margin: auto;
-}
+
