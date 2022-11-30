@@ -1,53 +1,58 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Welcome to the Graph.com</title>
+    <title>Welcome to Graph.com</title>
+
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="/style.css"> -->
+
+    <!-- <script src="/viewer.js" charset="utf-8" defer></script> -->
   </head>
   <body>
 
     <header>
 
-      <h1 class="site-title"><a href="#">Welcome to the Graph.com</a></h1>
-      <link rel="stylesheet" href="/style.css">
+      <h1 class="site-title"><a href="#">Welcome to Graph.com</a></h1>
+      <h2 class = "sub-title">Create a Custom Graph!</h2>
 
-    <header>
-
-    <h2> What Kind of Graph do You Want to Make?</h2>
+    </header>
 
     <main class="content">
 
-      <section id ="view-others-container">
+        <h2>What Kind of Graph Do You Want to Make?</h2>
 
-        <div class = "view-others">
-            <button id="view-other-button" class="action-button">View Other's Graphs!</button>
-        </div>
+      <section id="categorical-graph">
+
+          <div class="categorical-contents">
+            <div class="categorical-info-container">
+              <button id="info-button" class="action-button">info</button>
+              <div class="hide">(Pie Chart, Bar Chart).</div>
+            </div>
+            <div class="categorical-title-container">
+              <h3>Categorical Graph</h3>
+            </div>
+          </div>
+
       </section>
+      
+      <section id="numerical-graph">
 
-      <section id ="categorical-graph-container">
-
-        <div class = "categorical">
-          <h3>Categorical Graph</h3>
-
-          <button id="info-button" class="action-button">info</button>
-        </div>
-      </section>
-
-      <section id ="number-graph-container">
-
-        <div class = "number">
-          <h3>Number Graph</h3>
-    
+        <div class="numerical-contents">
+          <div class="numerical-info-container">
             <button id="info-button" class="action-button">info</button>
+            <div class="hide">(Line Graph, Scatter Plot).</div>
+          </div>
+          <div class="numerical-title-container">
+            <h3>Numerical Graph</h3>
+          </div>
         </div>
-      </section>
-    
+
+    </section>
+
     </main>
 
+    <button id="view-others-button" class="action-button">View Others Graphs</button>
 
-
-
-
-
-   
+  </body>
+</html>
