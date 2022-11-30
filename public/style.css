@@ -27,7 +27,6 @@ header{
 
 .content{
     display: flex;
-    flex-direction: row;
 }
 
 .site-title {
@@ -85,8 +84,33 @@ header a {
 }
 
 .categorical-contents h3{
+    display: inline-block;
     font-size: 30px;
     text-align: center;
+}
+
+#select-categorical-graph{
+    font-size: 15px;
+    border-radius: 3px;
+    border: 1px solid #000000;
+    background: lightgreen;
+    left: 25px;
+}
+
+#select-categorical-graph:hover{
+    cursor: pointer;
+}
+
+#select-numerical-graph{
+    font-size: 15px;
+    border-radius: 3px;
+    border: 1px solid #000000;
+    background: lightgreen;
+    left: 35px;
+}
+
+#select-numerical-graph:hover{
+    cursor: pointer;
 }
 
 #numerical-graph{
@@ -105,6 +129,7 @@ header a {
 }
 
 .numerical-contents h3{
+    display: inline-block;
     font-size: 30px;
     text-align: center;
 }
