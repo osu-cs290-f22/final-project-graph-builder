@@ -2,33 +2,29 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>First Graph</title>
+        <title>Pie Chart</title>
 
-        <link rel="stylesheet" href="initialGraphStyles.css">
+        <link rel="stylesheet" href="graphStyles.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
 
-        <script src="initialGraph.js" charset="utf-8" defer></script>
+        <script src= "pieChart.js" charset="utf-8" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
         
     </head>
     <body>
 
-        <!--Kieran here. I don't know what this page does and would like to know.-->
-        <h2>Bar Chart Creator</h2>
+        <a href="/homescreen.html">Back To Home</a>
+        
+        <h2>Pie Chart Creator</h2>    
+    
         <div>
             <label>Title</label>
             <div>
-              <input type="text">
+              <input id="title-input" type="text">
             </div>
-          </div>
+        </div>
 
-
-          <div>
-            <fieldset id = "value-boxes">
-                <legend>Values</legend>
-
-            </fieldset>
-          </div>
 
           <div id = "graph-specs">
             <div class="input-container">
@@ -39,6 +35,14 @@
                 <label class="graph-labels">Color:</label>
                 <div class="input-boxes-container">
                     <input type="text" class="input-boxes">
+                </div>
+                <label class="graph-labels">Value:</label>
+                <div class="input-boxes-container">
+                    <input type="number" class="input-boxes">
+                </div>
+                <label class="graph-labels">Opacity:</label>
+                <div class="input-boxes-container">
+                    <input type="range" min="1" max="100" value="100" class="input-boxes">
                 </div>
                 <button type="button" id="submit-button"><i class="fas fa-plus"></i></button>
               </div>
