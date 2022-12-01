@@ -264,17 +264,3 @@ function createGraph () {
     });
 }
 
-//Creates image to be saved
-function createImage(event)
-{
-    var graphImage
-    var graph = document.getElementById("myChart")
-
-    html2canvas(graph).then(function(canvas){
-        graphImage = canvas
-        document.body.appendChild(graphImage)
-    })
-}
-
-var publishButton = document.getElementById("publish-button")
-publishButton.addEventListener("click", createImage)

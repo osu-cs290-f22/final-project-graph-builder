@@ -6,7 +6,9 @@
     "fetch": "^1.1.0",
     "handlebars": "^4.7.7",
     "html2canvas": "^1.4.1",
-    "jquery": "^3.6.1"
+    "jquery": "^3.6.1",
+    "mongodb": "^4.12.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
