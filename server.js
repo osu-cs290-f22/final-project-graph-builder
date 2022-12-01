@@ -38,9 +38,6 @@ const allInputs = JSON.parse(fs.readFileSync("allInputs.json"));
 
 const barInputs = [allInputs[1], allInputs[4]];
 
-var graphs = JSON.parse(fs.readFileSync("graphs.json"));
-console.log(graphs[0]);
-
 /***************
  * HTTP REQUESTS
  * Some of these are commented out.
@@ -63,6 +60,16 @@ function renderMaker(script, type, inputArr, specArr) {
     return middleware;
 }
 
+/**
+ * This function renders the posts page
+ * I plan on rendering it and re-rendering it
+ */
+
+function renderView(req, res, next) {
+    var graphs = JSON.parse(fs.readFileSync("graphs.json"));
+    res.status(200).render("graphView", {posts: graphs});
+}
+
 //get the home page
 
 app.get('/', function(req, res, next) {res.status(200).sendFile("/public/index.html")});
@@ -81,11 +88,12 @@ app.get('/lws', renderMaker("scatterAndLineGraph.js", "Scatter Plot", allInputs,
 
 //get the view
 //I will absolutely want to replace it with a post function once I get that to work
-app.get('/view', function(req, res, next) {res.status(200).render("graphView", {posts: graphs})})
+app.get('/view', renderView)
 
-app.get('*', function(req, res, next) {res.status(404).sendFile("public/404.html")});
+//app.get('*', function(req, res, next) {res.status(404).sendFile("public/404.html")});
 
 
+//get the post image
 app.post('/postig', express.raw({type:"*/*"}), function(req, res, next) {
     
     //create a unique image name
@@ -98,6 +106,12 @@ app.post('/postig', express.raw({type:"*/*"}), function(req, res, next) {
 });
 
 
+//get the actual post json and put it in the graphs array
+app.post('/postgr', function(req, res, next) {
+    var graphs = JSON.parse(fs.readFileSync("graphs.json"));
+    graphs.push(req.body);
+    fs.writeFileSync("graphs.json", JSON.stringify(graphs))
+})
 
 
 app.listen(3000, function () {

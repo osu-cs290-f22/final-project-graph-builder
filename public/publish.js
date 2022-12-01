@@ -39,6 +39,21 @@ function createImage(event)
 
             var rt = await response.text();
             console.log(rt);
+
+            
+            fetch('/postgr', {
+                method: 'POST',
+                body: JSON.stringify({
+                    likeCount: 0,
+                    graph: rt,
+                    title: tInput,
+                    personName: "Anonymous",
+                    month: 1,
+                    day: 1,
+                    year: 2000
+                }),
+                headers: {"Content-Type": "application/json"}
+            })
         })
 
         
