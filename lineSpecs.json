@@ -1,0 +1,17 @@
+[
+    {
+        "label": "Name",
+        "type": "text",
+        "extra": ""
+    },
+    {
+        "label": "X-Value",
+        "type": "number",
+        "extra": ""
+    },
+    {
+        "label": "Y-Value",
+        "type": "number",
+        "extra": ""
+    }
+]
