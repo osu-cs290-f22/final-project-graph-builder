@@ -26,6 +26,7 @@ app.engine('handlebars', exphbs.engine({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
+app.use(express.static('images'));
 app.use(express.json());
 
 /*******************
@@ -98,8 +99,9 @@ app.post('/postig', express.raw({type:"*/*"}), function(req, res, next) {
     
     //create a unique image name
     var imageName = uuid.v4()
-    var imgAddress = "images/" + imageName + ".png"
-    fs.writeFileSync(imgAddress, req.body)
+    var imgAddress = imageName + ".png"
+    var imgPath = "images/" + imgAddress
+    fs.writeFileSync(imgPath, req.body)
 
     //send back the image address so I can do shit with the image
     res.end(imgAddress);
