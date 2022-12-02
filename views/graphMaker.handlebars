@@ -9,22 +9,24 @@
         <title>{{type}}</title>
 
         <link rel="stylesheet" href="graphStyles.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/31a9bcd812.js" crossorigin="anonymous"></script>
 
-        <script src= "publish.js" charset="utf-8" defer></script>
-        <script src= "{{script}}" charset="utf-8" defer></script>
+        <script src= "/publish.js" charset="utf-8" defer></script>
+        <script src= "/graphInputs.js" charset="utf-8" defer></script>
+        <script src= "/deleteButton.js" charset="utf-8" defer></script>
+        <script src= "/index.js" charset="utf-8" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="jquery-3.6.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     </head>
     <body>
-        <a href="/homescreen.html">Back To Home</a>
+        <a href="/">Back To Home</a>
         <h2>{{type}} Creator</h2>    
         
         <div>
             <label>Title</label>
             <div>
-                <input id="title-input" type="text">
+                <input id="title" type="text">
             </div>
         </div>
 
@@ -35,20 +37,18 @@
 
         <!--This is where all of the specs are-->
         <div id = "graph-specs">
-        <div class="input-container">
+            <div id="initial-input-container">
 
-        <!--All of the specs-->
-        {{#each specs}}
-            {{> spec}}
-        {{/each}}
+                <!--All of the specs-->
+                {{#each specs}}
+                    {{> spec}}
+                {{/each}}
 
-        <!--The submit button-->
-        <button type="button" id="submit-button"><i class="fas fa-plus"></i></button>
+                <!--The submit button-->
+                <button type="button" id="submit-button"><i class="fas fa-plus"></i></button>
 
+            </div>
         </div>
-        </div>
-
-        {{{body}}}
 
         <div>
             <button id="publish-button">Publish!</button>

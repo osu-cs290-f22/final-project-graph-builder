@@ -1,4 +1,29 @@
 {
+  "name": "graph-builder",
+  "version": "1.0.0",
+  "description": "Graph Builder Final Project CS 290",
+  "main": "server.js",
+    "scripts": {
+    "start": "node server.js",
+    "build": "handlebars views/partials/graphInputs.handlebars -f public/graphInputs.js & handlebars views/partials/deleteButton.handlebars -f public/deleteButton.js",
+    "prestart": "npm run build",
+    "predev": "npm run build",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osu-cs290-f22/final-project-graph-builder.git"
+  },
+  "keywords": [
+    "graph",
+    "builder"
+  ],
+  "author": "Jack Kammerer, Kiernan Hostetler-Mclau, Stella Holcomb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/osu-cs290-f22/final-project-graph-builder/issues"
+  },
+  "homepage": "https://github.com/osu-cs290-f22/final-project-graph-builder#readme",
   "dependencies": {
     "chart": "^0.1.2",
     "express": "^4.18.2",
@@ -6,7 +31,9 @@
     "fetch": "^1.1.0",
     "handlebars": "^4.7.7",
     "html2canvas": "^1.4.1",
-    "jquery": "^3.6.1"
+    "jquery": "^3.6.1", 
+    "mongodb": "4.12.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

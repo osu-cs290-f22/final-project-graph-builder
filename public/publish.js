@@ -1,43 +1,85 @@
-/**
- * 
- * Kieran Here
- * I put the publish button in one folder because let's face it:
- * Every page needs a publish button
- * And I only want to write the same lines of code so many times 
- */
-
-//Creates image to be saved
-
-
-function createImage(event)
+function pushData(title, data, colors, labels, xLabel, yLabel, line, dataX)
 {
     var graphImage
     var graph = document.getElementById("myChart")
-    var url;
+    var responseText
+    var date = new Date
+    var dateArray = date.toDateString().split(' ')
+    var finalDate = dateArray[1] + " " + dateArray[2] + " " + dateArray[3]
+
+    //This is the most important part
+    var postTitle = title.trim();
+
+    if (postTitle == "") {
+        alert("Please give your graph a title.")
+    }
 
     html2canvas(graph).then(function(canvas){
         graphImage = canvas
-        document.body.appendChild(graphImage)
-        url = canvas.toDataUrl();
-    })
-
-
-    //fetch request
-    fetch('/postig', {
-        method: 'POST',
-        body: JSON.stringify({
-            likeCount: 0,
-            graph: "url",
-            title: "Work on this",
-            personName: "Look this sounds like a you problem",
-            month: 6,
-            day: 40,
-            year: 6077
-        }),
-        headers: {'Content-type': 'application/json; charset=UTF-8'}
-    })
+    }.then(graphImage.toBlob( function(blob) {
+            fetch('/postimg', {
+                method: 'POST',
+                body: blob,
+                headers: {"Content-Type": "image/png"}
+                
+            }).then( function (res) {
+                if (res.status === 200)
+                {
+                    return res.text()
+                }
+                else
+                {
+                    console.log("Failure to push to execute postImage")
+                }
+            }).then(function (text) {
+                responseText = text
+                console.log(responseText)
+            }).catch(function(err) {
+                if (err) {
+                    console.log("Unable to perform the fetch")
+                }
+            })
+            fetch('/postgraph', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        likeCount: 0,
+                        graph: responseText,
+                        title: title,
+                        userName: "Anonymous",
+                        date: finalDate,
+                        data: data,
+                        colors: colors,
+                        line: line,
+                        xLabel: xLabel,
+                        yLabel: yLabel,
+                        labels: labels,
+                        xData: dataX
+                    }),
+                    headers: {"Content-Type": "application/json"}
+                }).then(function (res) {
+                    if (res.status === 200)
+                    {
+                        fetch("/view").then(function (res) {
+                            if (res.status === 200) 
+                            {
+                                alert("Succsessful Move")
+                            }
+                            else 
+                            {
+                                alert("Was unable to access the viewport")
+                            }
+                        }).catch(function (err) {
+                            alert("Unable to navigate to viewer")
+                        })
+                    }
+                    else
+                    {
+                        alert("Failure to postGraph 200")
+                    }
+                }).catch(function(err) {
+                    if (err) {
+                        alert("Failure to fetch postGraph")
+                    }
+                })
+        })))     
 }
-
-//publish button creates the graph.
-var publishButton = document.getElementById("publish-button")
-publishButton.addEventListener("click", createImage)
