@@ -605,3 +605,66 @@ function publish (event) {
 
 var publishButton = document.getElementById("publish-button")
 publishButton.addEventListener("click", publish)
+
+function pushData(title, data, colors, labels, xLabel, yLabel, line, dataX)
+{
+    var graphImage
+    var graph = document.getElementById("myChart")
+    var responseText
+    var date = new Date
+    var dateArray = date.toDateString().split(' ')
+    var finalDate = dateArray[1] + " " + dateArray[2] + " " + dateArray[3]
+
+    //This is the most important part
+    var postTitle = title.trim();
+
+    if (postTitle == "") {
+        alert("Please give your graph a title.")
+    }
+    else
+    {
+        html2canvas(graph).then(function(canvas){
+            graphImage = canvas
+        
+       
+            graphImage.toBlob(function(blob) {
+                    fetch('/postimg', {
+                        method: 'POST',
+                        body: blob,
+                        headers: {"Content-Type": "image/png"}
+                        
+                    }).then( function (res) {
+                        if (res.status === 200)
+                        {
+                            return res.text()
+                        }
+                        else
+                        {
+                            console.log("Failure to push to execute postImage")
+                        }
+                    }).then(function (text) {
+                        fetch('/post', {
+                            method: 'POST',
+                            body: JSON.stringify({
+                                likes: 0,
+                                graph: text,
+                                title: title,
+                                userName: "Anonymous",
+                                date: finalDate
+                            }),
+                            headers: {"Content-Type":"application/json"}
+                        }).then(function(res) {
+                            if (res.status == 200) {
+                                alert("Got a 200 response code!")
+                            }
+                            else {
+                                alert("Failed to get a 200 response code")
+                            }
+                        }).catch(function(err) {
+                            alert("Error" + err)
+                        })                         
+                    })
+                })
+            })
+    }
+}

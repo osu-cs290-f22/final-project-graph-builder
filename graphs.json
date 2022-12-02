@@ -1,1 +1,16 @@
-[{"likeCount":25,"graph":"https://creativecloud.adobe.com/content/dam/2013/long-exposure-photography-of-toby-harriman/article-marquee.jpg","title":"Example Graph","personName":"John Doe","month":11,"day":15,"year":2022},null,null,null,null,null,null,null]
+[
+  {
+    "likes": 25,
+    "graph": "https://creativecloud.adobe.com/content/dam/2013/long-exposure-photography-of-toby-harriman/article-marquee.jpg",
+    "title": "Example Graph",
+    "userName": "John Doe",
+    "date": "Nov 15 2022"
+  },
+  {
+    "likes": 0,
+    "graph": "57dbd277-686c-477f-9524-50e3d5db701b.png",
+    "title": "adsfasfa",
+    "userName": "Anonymous",
+    "date": "Dec 02 2022"
+  }
+]

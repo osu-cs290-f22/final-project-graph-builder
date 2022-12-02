@@ -11,6 +11,8 @@ const uuid = require("uuid")
 const Chart = require('chart');
 const html2canvas = require('html2canvas');
 
+var graphs = require("./graphs.json")
+console.log(graphs)
 
 //app is how we'll use express
 const app = express();
@@ -26,7 +28,8 @@ app.engine('handlebars', exphbs.engine({
 app.set('view engine', 'handlebars')
 
 app.use(express.static('public'))
-app.use(express.static('images'))
+app.use(express.static("images"))
+app.use(express.json())
 
 
 /*******************
@@ -94,8 +97,37 @@ app.get('/scatter', renderMaker("Scatter Plot", allInputs, scatterSpecs));
 app.get('/view', renderView)
 
 
-//app.get('*', function(req, res, next) {res.status(404).sendFile("public/404.html")});
 
+app.post('/post', function (req, res, next) {
+
+    var graphData = {
+        likes: req.body.likes,  
+        graph: req.body.graph,
+        title: req.body.title,
+        userName: req.body.userName,
+        date: req.body.date,
+        data: req.body.data,
+        colors: req.body.colors,
+        line: req.body.line,
+        xLabel: req.body.xLabel,
+        yLabel: req.body.yLabel,
+        labels: req.body.labels,
+        xData: req.body.xData
+    }
+  
+    graphs.push(graphData)
+    fs.writeFile(
+        "./graphs.json", 
+        JSON.stringify(graphs, null, 2), 
+        function (err) {
+        if (err) {
+            res.status(500).send("Error writing data")
+        }
+        else {
+            res.status(200).send("Graph Data Written")
+        }
+        })
+})
 
 //get the post image
 app.post('/postimg', express.raw({type:"*/*"}), function(req, res, next) {
@@ -111,39 +143,8 @@ app.post('/postimg', express.raw({type:"*/*"}), function(req, res, next) {
 });
 
 
-app.post('/postgraph', function (req, res, next) {
-    var graphs = JSON.parse(fs.readFileSync("graphs.json"))
-    if (req.body && req.body.title && req.body.graph) {
-        var graphData = {
-            likeCount: req.body.likeCount,
-            graph: req.body.graph,
-            title: req.body.title,
-            userName: req.body.userName,
-            date: req.body.date,
-            data: req.body.data,
-            colors: req.body.colors,
-            line: req.body.line,
-            xLabel: req.body.xLabel,
-            yLabel: req.body.yLabel,
-            labels: req.body.labels,
-            xData: req.body.dataX
-        }
-  
-        graphs.push(graphData)
-        fs.writeFile(
-          "./graphs.json", 
-          JSON.stringify(graphs, null, 2), 
-          function (err) {
-            if (err) {
-              res.status(500).send("Error writing data")
-            }
-            else {
-              res.status(200).send("Graph Data Written")
-            }
-          })
-    }
-})
 
+//app.get('*', function(req, res, next) {res.status(404).sendFile("public/404.html")});
 
 
 app.listen(3000, function () {
