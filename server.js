@@ -90,20 +90,49 @@ app.get('/view', function(req, res, next) {res.status(200).render("graphView", {
 
 
 
-app.post('/postig', function(req, res, next) {
-    console.log("got post", req.body.url)
-    fs.writeFileSync("graphs.json", req.body)
-});
+app.post('/post', function (req, res, next) {
 
-
-//get the actual post json and put it in the graphs array
-app.post('/postgr', function(req, res, next) {
-    var graphs = JSON.parse(fs.readFileSync("graphs.json"));
-    graphs.push(req.body);
-    fs.writeFileSync("graphs.json", JSON.stringify(graphs))
+    var graphData = {
+        likes: req.body.likes,  
+        graph: req.body.graph,
+        title: req.body.title,
+        userName: req.body.userName,
+        date: req.body.date,
+        data: req.body.data,
+        colors: req.body.colors,
+        line: req.body.line,
+        xLabel: req.body.xLabel,
+        yLabel: req.body.yLabel,
+        labels: req.body.labels,
+        xData: req.body.xData
+    }
+  
+    graphs.push(graphData)
+    fs.writeFile(
+        "./graphs.json", 
+        JSON.stringify(graphs, null, 2), 
+        function (err) {
+        if (err) {
+            res.status(500).send("Error writing data")
+        }
+        else {
+            res.status(200).send("Graph Data Written")
+        }
+        })
 })
 
-//app.get('*', function(req, res, next) {res.status(404).sendFile("public/404.html")});
+//get the post image
+app.post('/postimg', express.raw({type:"*/*"}), function(req, res, next) {
+    
+    //create a unique image name
+    var imageName = uuid.v4()
+    var imgAddress = imageName + ".png"
+    var imgPath = "images/" + imgAddress
+    fs.writeFileSync(imgPath, req.body)
+
+    //send back the image address so I can access the image
+    res.send(imgAddress);
+});
 
 
 app.listen(3000, function () {

@@ -654,7 +654,7 @@ function pushData(title, data, colors, labels, xLabel, yLabel, line, dataX)
                             }),
                             headers: {"Content-Type":"application/json"}
                         }).then(function(res) {
-                            if (res.status == 200) {
+                            if (res.status === 200) {
                                 alert("Got a 200 response code!")
                             }
                             else {
