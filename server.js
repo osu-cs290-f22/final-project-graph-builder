@@ -12,11 +12,13 @@ const Chart = require('chart');
 const html2canvas = require('html2canvas');
 
 var graphs = require("./graphs.json")
-console.log(graphs)
 
 //app is how we'll use express
 const app = express();
 
+
+var tempData
+var sendTempData = false
 
 /*******************
  * SETTING UP HANDLEBARS
@@ -62,8 +64,7 @@ function renderMaker(type, inputArr, specArr) {
             type: type,
             inputs: inputArr,
             specs: specArr
-        }
-        )
+        })
     }
     return middleware;
 }
@@ -96,7 +97,26 @@ app.get('/scatter', renderMaker("Scatter Plot", allInputs, scatterSpecs));
 //I will absolutely want to replace it with a post function once I get that to work
 app.get('/view', renderView)
 
+app.get("/graphs/:number", function (req, res, next) {
+    if (req.params.number < graphs.length && req.params.number > -1)
+    {
+        tempData = graphs[req.params.number]
+        sendTempData = true
+        res.status(200).send(tempData)
+    }
+    else
+    {
+        next()
+    }    
+})
 
+app.get("/pastData", function (req, res, next) {
+    if (sendTempData)
+    {
+        sendTempData = false
+        res.status(200).send(tempData)      
+    }    
+})
 
 app.post('/post', function (req, res, next) {
 
@@ -108,11 +128,14 @@ app.post('/post', function (req, res, next) {
         date: req.body.date,
         data: req.body.data,
         colors: req.body.colors,
+        opacities: req.body.opacities,
+        addedSymbol: req.body.addedSymbol,
         line: req.body.line,
         xLabel: req.body.xLabel,
         yLabel: req.body.yLabel,
         labels: req.body.labels,
-        xData: req.body.xData
+        xData: req.body.xData,
+        url: req.body.url
     }
   
     graphs.push(graphData)

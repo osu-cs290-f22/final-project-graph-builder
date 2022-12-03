@@ -8,12 +8,13 @@
 
         <title>{{type}}</title>
 
-        <link rel="stylesheet" href="graphStyles.css">
+        <link rel="stylesheet" href="style.css">
         <script src="https://kit.fontawesome.com/31a9bcd812.js" crossorigin="anonymous"></script>
 
         <script src= "/graphInputs.js" charset="utf-8" defer></script>
         <script src= "/deleteButton.js" charset="utf-8" defer></script>
         <script src= "/index.js" charset="utf-8" defer></script>
+        
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -27,7 +28,13 @@
             <div>
                 <input id="title" type="text">
             </div>
+            <label>User's Name</label>
+            <div>
+                <input id="username" type="text">
+            </div>
         </div>
+
+        <h2>Graph Specifications:</h2>
 
         <!--All of the inputs-->
         {{#each inputs}}

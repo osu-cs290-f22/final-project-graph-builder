@@ -1,16 +1,538 @@
 [
   {
-    "likes": 25,
-    "graph": "https://creativecloud.adobe.com/content/dam/2013/long-exposure-photography-of-toby-harriman/article-marquee.jpg",
-    "title": "Example Graph",
-    "userName": "John Doe",
-    "date": "Nov 15 2022"
+    "likes": 0,
+    "graph": "9c86efdd-5f77-4ff8-bb00-fce32e676d93.png",
+    "title": "First Scatter Graph",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "0",
+      "1",
+      "4",
+      "9",
+      "16",
+      "25",
+      "36",
+      "49",
+      "64",
+      "81",
+      "100"
+    ],
+    "colors": "red",
+    "opacities": "50",
+    "addedSymbol": "$",
+    "line": true,
+    "xLabel": "Real X Axis",
+    "yLabel": "Real Y Axis",
+    "labels": "",
+    "xData": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "url": "/scatter"
   },
   {
     "likes": 0,
-    "graph": "57dbd277-686c-477f-9524-50e3d5db701b.png",
-    "title": "adsfasfa",
-    "userName": "Anonymous",
-    "date": "Dec 02 2022"
+    "graph": "2146b702-e8f4-44d2-9fe2-7c4ed74d2013.png",
+    "title": "First Scatter Graph (More Values)",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "16",
+      "25",
+      "36",
+      "49",
+      "64",
+      "81",
+      "100",
+      "121",
+      "144",
+      "169",
+      "196"
+    ],
+    "colors": "green",
+    "opacities": "90",
+    "addedSymbol": "$",
+    "line": true,
+    "xLabel": "Real X Axis",
+    "yLabel": "Real Y Axis",
+    "labels": "",
+    "xData": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14"
+    ],
+    "url": "/scatter"
+  },
+  {
+    "likes": 0,
+    "graph": "d001c07e-e416-4c88-90bd-7ac95b4be2fe.png",
+    "title": "Microtel 2020 Sales",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "179",
+      "20",
+      "125",
+      "190"
+    ],
+    "colors": "blue",
+    "opacities": "10",
+    "addedSymbol": "$ ",
+    "line": "",
+    "xLabel": "Quarters",
+    "yLabel": "Profits (millions)",
+    "labels": [
+      "Q1 2020",
+      "Q2 2020",
+      "Q3 2020",
+      "Q4 2020"
+    ],
+    "xData": "",
+    "url": "/line"
+  },
+  {
+    "likes": 0,
+    "graph": "4ac906f7-7609-4474-a8bb-0743b1febd71.png",
+    "title": "Microtel 2020-2 Sales",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "179",
+      "20",
+      "125",
+      "190",
+      "240",
+      "280",
+      "500",
+      "450",
+      "425",
+      "375",
+      "300"
+    ],
+    "colors": "green",
+    "opacities": "85",
+    "addedSymbol": "$ ",
+    "line": "",
+    "xLabel": "Quarters",
+    "yLabel": "Profits (millions)",
+    "labels": [
+      "Q1 2020",
+      "Q2 2020",
+      "Q3 2020",
+      "Q4 2020",
+      "Q1 2021",
+      "Q2 2021",
+      "Q3 2021",
+      "Q4 2021",
+      "Q1 2022",
+      "Q2 2022",
+      "Q3 2022"
+    ],
+    "xData": "",
+    "url": "/line"
+  },
+  {
+    "likes": 0,
+    "graph": "2a87021e-5efb-498b-8305-a63294bd3bc3.png",
+    "title": "CO2 Emissions (US)",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "45",
+      "23",
+      "67",
+      "15"
+    ],
+    "colors": [
+      "Red",
+      "Black",
+      "Black",
+      "Blue"
+    ],
+    "opacities": [
+      "100",
+      "100",
+      "10",
+      "65"
+    ],
+    "addedSymbol": "10^6 * ",
+    "line": "",
+    "xLabel": "",
+    "yLabel": "Emissions (millions of tons)",
+    "labels": [
+      "Oil",
+      "Gas",
+      "Coal",
+      "Transportation"
+    ],
+    "xData": "",
+    "url": "/bar"
+  },
+  {
+    "likes": 0,
+    "graph": "dcef20dd-6dce-43a1-91c3-f274e7651846.png",
+    "title": "CO2 Emissions (US)",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "45",
+      "23",
+      "67",
+      "15",
+      "22",
+      "39"
+    ],
+    "colors": [
+      "Red",
+      "Black",
+      "Black",
+      "Blue",
+      "yellow",
+      "green"
+    ],
+    "opacities": [
+      "100",
+      "100",
+      "10",
+      "65",
+      "59",
+      "88"
+    ],
+    "addedSymbol": "10^6 * ",
+    "line": "",
+    "xLabel": "",
+    "yLabel": "Emissions (millions of tons)",
+    "labels": [
+      "Oil",
+      "Gas",
+      "Coal",
+      "Transportation",
+      "Livestock",
+      "Deforestation"
+    ],
+    "xData": "",
+    "url": "/bar"
+  },
+  {
+    "likes": 0,
+    "graph": "f550c225-37d2-4892-b92d-4e9a64181bd7.png",
+    "title": "Global Energy Production",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "55",
+      "200"
+    ],
+    "colors": [
+      "green",
+      "red"
+    ],
+    "opacities": [
+      "100",
+      "100"
+    ],
+    "addedSymbol": "",
+    "line": "",
+    "xLabel": "",
+    "yLabel": "",
+    "labels": [
+      "Renewables",
+      "Fossil Fuels"
+    ],
+    "xData": "",
+    "url": "/pie"
+  },
+  {
+    "likes": 0,
+    "graph": "4b2898e0-45e2-4a13-810c-c02119c9ab19.png",
+    "title": "Global Energy Production",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "55",
+      "65",
+      "95",
+      "125"
+    ],
+    "colors": [
+      "green",
+      "black",
+      "red",
+      "blue"
+    ],
+    "opacities": [
+      "100",
+      "67",
+      "83",
+      "15"
+    ],
+    "addedSymbol": "",
+    "line": "",
+    "xLabel": "",
+    "yLabel": "",
+    "labels": [
+      "Renewables ",
+      "Coal",
+      "Natural Gas",
+      "Oil"
+    ],
+    "xData": "",
+    "url": "/pie"
+  },
+  {
+    "likes": 0,
+    "graph": "37e16798-43a9-4698-9ed2-b6d3ae5bc1a0.png",
+    "title": "Test Scatter",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "0",
+      "1",
+      "8",
+      "27",
+      "64"
+    ],
+    "colors": "blue",
+    "opacities": "67",
+    "addedSymbol": "$ ",
+    "line": true,
+    "xLabel": "X-Axis",
+    "yLabel": "Y-Axis",
+    "labels": "",
+    "xData": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "url": "/scatter"
+  },
+  {
+    "likes": 0,
+    "graph": "3e2be75c-a730-4cc9-bf90-e3321df67f9e.png",
+    "title": "Test Scatter Add",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "0",
+      "1",
+      "8",
+      "27",
+      "125"
+    ],
+    "colors": "blue",
+    "opacities": "67",
+    "addedSymbol": "$ ",
+    "line": true,
+    "xLabel": "X-Axis",
+    "yLabel": "Y-Axis",
+    "labels": "",
+    "xData": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "5"
+    ],
+    "url": "/scatter"
+  },
+  {
+    "likes": 0,
+    "graph": "b6d3d93d-c195-49d9-918a-49df0d563e19.png",
+    "title": "Test Bar",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "44",
+      "67",
+      "21"
+    ],
+    "colors": [
+      "red",
+      "blue",
+      "green"
+    ],
+    "opacities": [
+      "83",
+      "15",
+      "78"
+    ],
+    "addedSymbol": "$ ",
+    "line": "",
+    "xLabel": "",
+    "yLabel": "Y-Axis",
+    "labels": [
+      "Bar1",
+      "Bar2",
+      "Bar3"
+    ],
+    "xData": "",
+    "url": "/bar"
+  },
+  {
+    "likes": 0,
+    "graph": "9c694db5-fe83-4e78-b1d2-2e57035504f4.png",
+    "title": "Test Bar Add",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "44",
+      "21",
+      "78"
+    ],
+    "colors": [
+      "red",
+      "green",
+      "purple"
+    ],
+    "opacities": [
+      "83",
+      "78",
+      "17"
+    ],
+    "addedSymbol": "$ ",
+    "line": "",
+    "xLabel": "",
+    "yLabel": "Y-Axis",
+    "labels": [
+      "Bar1",
+      "Bar3",
+      "Bar4"
+    ],
+    "xData": "",
+    "url": "/bar"
+  },
+  {
+    "likes": 0,
+    "graph": "e80d6dc8-ab8c-43c0-9db0-f8f40fe6d07d.png",
+    "title": "Pie Test",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "44",
+      "57",
+      "95"
+    ],
+    "colors": [
+      "red",
+      "yellow",
+      "green"
+    ],
+    "opacities": [
+      "70",
+      "17",
+      "100"
+    ],
+    "addedSymbol": "",
+    "line": "",
+    "xLabel": "",
+    "yLabel": "",
+    "labels": [
+      "Slice 1",
+      "Slice 2",
+      "Slice 3"
+    ],
+    "xData": "",
+    "url": "/pie"
+  },
+  {
+    "likes": 0,
+    "graph": "300af993-511c-48c6-b13d-0cdccbe4a272.png",
+    "title": "Pie Test Add",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "95",
+      "11"
+    ],
+    "colors": [
+      "green",
+      "purple"
+    ],
+    "opacities": [
+      "100",
+      "18"
+    ],
+    "addedSymbol": "",
+    "line": "",
+    "xLabel": "",
+    "yLabel": "",
+    "labels": [
+      "Slice 3",
+      "Slice 4"
+    ],
+    "xData": "",
+    "url": "/pie"
+  },
+  {
+    "likes": 0,
+    "graph": "2603ba3a-25ec-47cd-a30c-6674ea3ef352.png",
+    "title": "Test Line",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "55",
+      "75",
+      "106"
+    ],
+    "colors": "red",
+    "opacities": "45",
+    "addedSymbol": "$ ",
+    "line": "",
+    "xLabel": "X-Axis",
+    "yLabel": "Y-Axis",
+    "labels": [
+      "Point 1",
+      "Point 2",
+      "Point 3"
+    ],
+    "xData": "",
+    "url": "/line"
+  },
+  {
+    "likes": 0,
+    "graph": "9f0b716c-6798-424b-8f81-84feda9881c5.png",
+    "title": "Test Line",
+    "userName": "Jack Kammerer",
+    "date": "Dec 03 2022",
+    "data": [
+      "75",
+      "106",
+      "23",
+      "34"
+    ],
+    "colors": "purple",
+    "opacities": "100",
+    "addedSymbol": "$ ",
+    "line": "",
+    "xLabel": "X-Axis",
+    "yLabel": "Y-Axis",
+    "labels": [
+      "Point 2",
+      "Point 3",
+      "Point 4",
+      "Point 5"
+    ],
+    "xData": "",
+    "url": "/line"
   }
 ]
