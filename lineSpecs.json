@@ -2,16 +2,19 @@
     {
         "label": "Name",
         "type": "text",
+        "iden": "section-name",
         "extra": ""
     },
     {
         "label": "X-Value",
         "type": "number",
+        "iden": "x-value-boxes",
         "extra": ""
     },
     {
         "label": "Y-Value",
         "type": "number",
+        "iden": "y-value-boxes",
         "extra": ""
     }
 ]

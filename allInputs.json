@@ -28,5 +28,11 @@
         "iden": "added-symbol",
         "type": "text",
         "extra": ""
+    },
+    {
+        "title": "Show Line?",
+        "iden": "line-checkbox",
+        "type": "checkbox",
+        "extra": ""
     }
 ]

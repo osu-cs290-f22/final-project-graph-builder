@@ -2,21 +2,25 @@
     {
         "label": "Name",
         "type": "text",
+        "iden": "section-name",
         "extra": ""
     },
     {
         "label": "Color",
         "type": "text",
+        "iden": "section-color",
         "extra": ""
     },
     {
         "label": "Value",
         "type": "number",
+        "iden": "section-value",
         "extra": ""
     },
     {
         "label": "Opacity",
-        "type": "number",
+        "type": "range",
+        "iden": "section-opacity",
         "extra": "max=\"100\" min=\"1\""
     }
 ]
