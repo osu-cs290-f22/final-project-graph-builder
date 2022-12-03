@@ -166,6 +166,20 @@ app.post('/postimg', express.raw({type:"*/*"}), function(req, res, next) {
 });
 
 
+app.post("/addLike/:position", function (req, res, next) {
+    graphs[req.params.position].likes = graphs[req.params.position].likes + req.body.likeIncrease
+    fs.writeFile(
+        "./graphs.json",
+        JSON.stringify(graphs, null, 2), 
+        function (err) {
+        if (err) {
+            res.status(500).send("Error writing data")
+        }
+        else {
+            res.status(200).send("Graph Data Written")
+        }
+    })
+})
 
 //app.get('*', function(req, res, next) {res.status(404).sendFile("public/404.html")});
 

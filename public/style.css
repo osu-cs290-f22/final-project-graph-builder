@@ -156,66 +156,107 @@ header a {
 ---------- Graph Stylings ----------
 */
 
-.chart {
-    height: 450px;
-    width: 450px;
-    position: absolute;
-    bottom: 10px;
-    right: 50px;
+/* A container that holds the chart element itself */
+#chart-container {
+    height: 75vh;
+    width: 75vh;
+    margin-top: 40px;
 }
 
-#myChart {
-    bottom: 0px;
-    right: 0px;
-}
 
-.graph-input-boxes
-{
-    width: 100px;
-}
+/*------------ Stylings of "Global" input boxes ------------*/
 
+/* Where the graph specifications are entered */
 .input-boxes
 {
-    width: 100px;
+    width: 200px;
 }
 
-.box-format
-{
-    width: 100px;
-}
+/* The stylings of both types of input boxes*/
 
-.bar-value-boxes
-{
-    width: 100px;
-}
-
-.color-value-boxes
-{
-    width: 100px;
-}
-
+/* These contain the text boxes, and positions them correctly */
 .input-boxes-container
 {
-    width: 100px;
-    margin: 0;
-    margin: 10px 10px;
+    margin: 10px 20px 10px 5px;
 }
 
+
+
+
+/* --------- Stylings of the Initial Input Box ------------ */
+
+/* The initial boxes that graph data is entered into*/
+.graph-input-boxes
+{
+    width: 80px;
+}
+
+/* The name box for bar, pie, and line graphs */
+#section-name 
+{
+    width: 120px;
+}
+
+/* The slider for opacity */
+#section-opacity
+{
+    width: 150px;
+}
+
+/* These are the graph label for the initial input*/
 .input-graph-labels {
     margin: auto 10px;
 }
 
-.graph-labels {
-    margin: auto 10px;
-}
-
+/* The grey container with the attatched "+" button */
 #initial-input-container {
     display: flex;
     position: relative;
     margin-top: 5px;
     background-color: gray;
+    max-width: 850px;
 }
 
+/* The button to add the data from the initial container to a smaller container */
+#submit-button {
+    background-color: blue;
+    color: white;
+    height: 30px;
+    width: 30px;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+
+/* --------- Stylings of Editable, Published Input --------- */
+
+/* The editable boxes that are inputted after the plus button is pressed*/
+.box-format
+{
+    width: 80px;
+}
+
+/* The name box for bar, pie, and line graphs */
+.section-name 
+{
+    width: 120px;
+}
+
+/* The slider for opacity */
+.section-opacity
+{
+    width: 150px;
+}
+
+/* These are the graph labels for individual data points*/
+.graph-labels {
+    margin: auto 10px;
+}
+
+/* The smaller blue containers that holds the editable data */
 .input-container {
     display: flex;
     position: relative;
@@ -224,20 +265,10 @@ header a {
     background-color: blue;
 }
 
-#submit-button {
-    background-color: blue;
-    color: white;
-    margin-left: 40px;
-    height: 30px;
-    width: 30px;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
+/* Button to delete an editable layer of data*/
 #delete-button {
     background-color: gray;
     color: red;
-
     margin-left: auto;
     margin-right: 40px;
     height: 30px;
@@ -246,21 +277,17 @@ header a {
     margin-bottom: auto;
 }
 
+
+
+
+
+/* The publish button */
 #publish-button{
     font-size: 15px;
     background-color: limegreen;
     position: relative;
     top: 25px;
     left: 0 px;
-}
-
-
-#chart-container{
-    position: relative;
-    top: 50px;
-    left: 85px;
-    height: 500px;
-    width: 500px;
 }
 
 /*
@@ -403,7 +430,7 @@ header a {
 }
 
 /* Move the title so it is below the home button*/
-#title-position {
+.title-position {
     margin-top: 120px;
 }
 

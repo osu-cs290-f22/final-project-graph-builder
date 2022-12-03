@@ -1,6 +1,6 @@
 [
   {
-    "likes": 0,
+    "likes": 3,
     "graph": "9c86efdd-5f77-4ff8-bb00-fce32e676d93.png",
     "title": "First Scatter Graph",
     "userName": "Jack Kammerer",
@@ -41,7 +41,7 @@
     "url": "/scatter"
   },
   {
-    "likes": 0,
+    "likes": 2,
     "graph": "2146b702-e8f4-44d2-9fe2-7c4ed74d2013.png",
     "title": "First Scatter Graph (More Values)",
     "userName": "Jack Kammerer",
@@ -82,7 +82,7 @@
     "url": "/scatter"
   },
   {
-    "likes": 0,
+    "likes": 1,
     "graph": "d001c07e-e416-4c88-90bd-7ac95b4be2fe.png",
     "title": "Microtel 2020 Sales",
     "userName": "Jack Kammerer",

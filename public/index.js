@@ -393,7 +393,7 @@ function pieOptions() {
                     text: document.getElementById("title").value
                 },
                 legend: {
-                    display: false
+                    display: true
                 }
             }
         }
@@ -411,7 +411,7 @@ function pieOptions() {
                     text: document.getElementById("title").value
                 },
                 legend: {
-                    display: false
+                    display: true
                 }
             }
         }
@@ -443,6 +443,26 @@ function getAllOpacities() {
     return allOpacityString
 }
 
+//Creates special labels for the Pie Chart to give more info
+function createPieLabels() {
+    var labelsText = createLabels()
+    var values = accessValues()
+    var pieLabelsArray = []
+    var sum = 0
+    values.forEach( function (elem) {
+        sum = sum + parseInt(elem)
+    })
+
+    for(var i = 0; i < labelsText.length; i++)
+    {
+        var percentage = Math.round((values[i]/sum) * 100)
+        pieLabelsArray.push(labelsText[i] + " " + percentage.toString() +"%")    
+    }
+
+    return pieLabelsArray
+}
+
+
 //--------- Graph Reset Functions ----------
 
 //Deletes the graph, by removing it as a child
@@ -456,7 +476,6 @@ function createGraph() {
     var chartContainer = document.getElementById("chart-container")
     var chart = document.createElement("canvas")
     chart.id = "myChart"
-    chart.classList.add("chart")
     chartContainer.appendChild(chart)
     const ctx = document.getElementById('myChart');
 
@@ -646,16 +665,16 @@ function createPieChart (ctx) {
     var colorsArray = createColors()
     var graphColors = colorsArray[0]
     var borderColors = colorsArray[1]
-    console.log(animationSwitch)
 
     const myChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: createLabels(),
+            labels: createPieLabels(),
             datasets: [{
                 data: accessValues(),
                 backgroundColor: graphColors,
-                borderColors: borderColors
+                borderColors: borderColors,
+                hoverOffset: 20
             }]
         },
         options: pieOptions()

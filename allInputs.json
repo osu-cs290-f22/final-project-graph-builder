@@ -20,7 +20,7 @@
     {
         "title": "Opacity",
         "iden": "opacity",
-        "type": "number",
+        "type": "range",
         "extra": "max=\"100\" min=\"1\""
     },
     {
