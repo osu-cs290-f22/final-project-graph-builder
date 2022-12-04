@@ -11,31 +11,38 @@
 
     </head>
     <body>
-        <div id = "header">
-            <h2 id="title-position">{{type}} Creator</h2>
-                <div>
-                    <a href="/"><button id = "home-button"><p id = "house-icon"><i class="fa-sharp fa-solid fa-house"></i></p> <p id = "home-text">Home</p> </button></a>
-                </div>
-        </div>    
+        {{> header titleText = type}}
+
         <div id = "graph-body">
-            <h2>Graph Specifications:</h2>        
+            <div id = "graph-inputs">
+
+                <h2>Graph Specifications:</h2>        
+                
+                <div class = "input-boxes-stylings">
+                    <label>Title</label>
+                    <div>
+                        <input class="input-boxes" id="title" type="text">
+                    </div>
+                </div>
+                <div class = "input-boxes-stylings">
+                    <label>User's Name</label>
+                    <div>
+                        <input class="input-boxes" id="username" type="text">
+                    </div>                    
+                </div>
             
-            <div>
-                <label>Title</label>
-                <div>
-                    <input id="title" type="text">
-                </div>
-                <label>User's Name</label>
-                <div>
-                    <input id="username" type="text">
-                </div>
+
+
+                <!--All of the inputs-->
+                {{#each inputs}}
+                    {{> input}}
+                {{/each}}
+        
             </div>
 
-
-            <!--All of the inputs-->
-            {{#each inputs}}
-                {{> input}}
-            {{/each}}
+            <div id = "chart-container">
+                <!--<canvas id = "myChart"></canvas> -->
+            </div> 
 
             <!--This is where all of the specs are-->
             <div id = "graph-specs">
@@ -48,19 +55,18 @@
 
                     <!--The submit button-->
                     <button type="button" id="submit-button"><i class="fas fa-plus"></i></button>
-
-                </div>
-            </div>
-
-            <div>
-                <button id="publish-button">Publish!</button>
-            </div>
-
-                
-            <div id = "chart-container">
-                <!--<canvas id = "myChart"></canvas> -->
+                    
+                </div>   
             </div>
         </div>
+        
+
+        
+        <div>
+            <button id="publish-button">Publish!</button>
+        </div>        
+
+        
 
     </body>
 </html>

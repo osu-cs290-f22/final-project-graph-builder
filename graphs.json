@@ -1,6 +1,6 @@
 [
   {
-    "likes": 3,
+    "likes": 7,
     "graph": "9a241c40-e1df-403b-8617-04fbc9bfed38.png",
     "title": "CO2 Emissions 2022",
     "userName": "Jack Kammerer",
@@ -41,7 +41,7 @@
     "url": "/bar"
   },
   {
-    "likes": 1,
+    "likes": 2,
     "graph": "64a0e67f-73b8-4ee5-af97-39fd3086f0c9.png",
     "title": "CO2 Emissions 2021",
     "userName": "Jack Kammerer",
@@ -82,7 +82,7 @@
     "url": "/bar"
   },
   {
-    "likes": 0,
+    "likes": 1,
     "graph": "e297b0f8-c0de-4a42-9784-1e637345f696.png",
     "title": "Mineral Extraction 1995",
     "userName": "Jack Kammerer",
@@ -119,7 +119,7 @@
     "url": "/pie"
   },
   {
-    "likes": 0,
+    "likes": 1,
     "graph": "0906c3cc-e7e3-4d90-846b-f91ea90d2759.png",
     "title": "Mineral Extraction 2022",
     "userName": "Jack Kammerer",

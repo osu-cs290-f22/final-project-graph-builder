@@ -7,39 +7,57 @@
 
     </head>
     <body>
-        <div>
-            <a href="/"><button id = "home-button"><p id = "house-icon"><i class="fa-sharp fa-solid fa-house"></i></p> <p id = "home-text">Home</p> </button></a>
-        </div>
-        <div>
-            <div>
-                <h2 class = "title-position">Look at Other Users Who Have Created Graphs:</h2>                
-            </div>
+        {{> header}}
 
-            <div>
-                <label>Search for Title</label>
-                <div>
-                    <input type="text">
+        <div>
+            <div id="filter-box">
+                <h2 id="filter-box-title">Filter</h2>
+                <div class="filter-div">
+                    <label>Search for Title</label>
+                    <div>
+                        <input id="filter-title" class="filter-box" type="text">
+                    </div>                    
                 </div>
-                <label>Search for Author</label>
-                <div>
-                    <input type="text">
+
+                <div class="filter-div">
+                    <label>Search for Author</label>
+                    <div>
+                        <input id = "filter-author" class="filter-box" type="text">
+                    </div>                    
                 </div>
-                <label>Time Search</label>
-                <div>
-                    <input type="text">
-                    <input type="text">
-                    <input type="text">
+
+                <div class="filter-div">
+                    <label class="center-label">Time Search</label>
+                    <div class = "date-boxes-container">
+                        <input class = "small-boxes" placeholder="month" type="text">
+                        <input class = "small-boxes" placeholder="day" type="text">
+                        <input class = "small-boxes" placeholder="year" type="text">
+                    </div>
+                    <div class="small-text">
+                        <p>To</p>
+                    </div>
+                    <div class = "date-boxes-container">
+                        <input class = "small-boxes" placeholder="month" type="text">
+                        <input class = "small-boxes" placeholder="day" type="text">
+                        <input class = "small-boxes" placeholder="year" type="text">
+                    </div>
                 </div>
-                <div>
-                    <input type="text">
-                    <input type="text">
-                    <input type="text">
+                <div class="filter-div">
+                    <label>Sort By:</label>
+                    <div class= "center">
+                        <select id="sort-by">
+                            <option selected>Oldest</option>
+                            <option>Newest</option>
+                            <option>Most Liked</option>
+                        </select>
+                    </div>
                 </div>
-                <select>
-                    <option>Newest</option>
-                    <option>Oldest</option>
-                    <option>Most Liked</option>
-                </select>
+
+                <div id="filter-button-container">
+                    <button id="filter-button">
+                        Filter
+                    </button>                    
+                </div>
             </div>
 
             <div id="all-posts">

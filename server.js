@@ -74,6 +74,7 @@ function renderMaker(type, inputArr, specArr) {
 function renderView(req, res, next) {
     var graphs = JSON.parse(fs.readFileSync("graphs.json"))
     res.status(200).render("graphView", {
+        titleText: "View Other User's Graphs",
         posts: graphs
     })
 }
@@ -85,16 +86,16 @@ app.get('/', function(req, res, next) {
 })
 
 //Bar Graph
-app.get('/bar', renderMaker("Bar Graph", barInputs, pbSpecs));
+app.get('/bar', renderMaker("Bar Graph Creator", barInputs, pbSpecs));
 
 //Line Graph
-app.get('/line', renderMaker("Line Chart", lineInputs, lineChartSpecs));
+app.get('/line', renderMaker("Line Chart Creator", lineInputs, lineChartSpecs));
 
 //Pie Chart
-app.get('/pie', renderMaker("Pie Chart", [], pbSpecs));
+app.get('/pie', renderMaker("Pie Chart Creator", [], pbSpecs));
 
 //Scatter Plot
-app.get('/scatter', renderMaker("Scatter Plot", allInputs, scatterSpecs));
+app.get('/scatter', renderMaker("Scatter Plot Creator", allInputs, scatterSpecs));
 
 //The viewport function
 app.get('/view', renderView)
@@ -210,9 +211,9 @@ app.post("/addLike/:position", function (req, res, next) {
 })
 
 //404 browser get request, for the page not found error
-/*app.get('*', function(req, res, next) {
-    res.status(404).sendFile("public/404.html")
-});*/
+app.get('*', function(req, res, next) {
+    res.status(404).render("404", {titleText: "404 Error"})
+});
 
 
 app.listen(3000, function () {

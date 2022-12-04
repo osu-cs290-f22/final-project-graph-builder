@@ -121,11 +121,13 @@ function moveLayer(event) {
                     {
                         switchDataBox = layers[i-1] 
                         before = "beforebegin"
+                        console.log(i-1)
                     }
                     else
                     {
                         switchDataBox = layers[i -1 + layers.length]
                         before = "afterend"
+                        console.log(i-1 + layers.length)
                     }
                 }
                 else if (event.target.classList[0] = "arrow-down" || event.target.parentNode.parentNode.classList[0] == "arrow-down")
@@ -134,18 +136,22 @@ function moveLayer(event) {
                     {
                         switchDataBox = layers[i+1] 
                         before = "afterend"
+                        console.log(i+1)
                     }   
                     else
                     {
                         switchDataBox = layers[i + 1 - layers.length]
                         before = "beforebegin"
+                        console.log(i+1 - layers.length)
                     }
                 }
 
                 if (switchDataBox)
                 {
                     var permData = layerData
+                    console.log(permData)
                     var permSwitch = switchDataBox
+                    console.log(permSwitch)
                     graphDataContainer.removeChild(document.getElementById(layerData.id))             
                     permSwitch.insertAdjacentElement(before, permData)                
 
@@ -169,14 +175,28 @@ function deleteLayer(event)
     {
         var allGraphData = document.getElementById("graph-specs")
         allGraphData.removeChild(event.target.parentNode)
+        resetIDs()
         resetGraph(event)
     }
     else if (event.target.parentNode.classList[0] == "delete-button")
     {
         var allGraphData = document.getElementById("graph-specs")
         allGraphData.removeChild(event.target.parentNode.parentNode)
+        resetIDs()
         resetGraph(event)
     }
+}
+
+//Needed after deleting an element, as it can lead to two items being out of order and/or having the same id
+function resetIDs()
+{
+    var dataList = document.getElementsByClassName("input-container")
+
+    for (var i = 0; i < dataList.length; i++)
+    {
+        dataList[i].id = i.toString()
+    }
+
 }
 
 //Decides whether the click is for a delete button or an arrow button

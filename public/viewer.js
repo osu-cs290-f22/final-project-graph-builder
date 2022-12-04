@@ -1,5 +1,5 @@
 
-document.body.addEventListener("click", createNewGraph)
+document.body.addEventListener("click", createNewGraphOrLike)
 
 var newGraphData
 var likeButtonsSwitches = createButtonLikes()
@@ -14,7 +14,7 @@ function createButtonLikes () {
     return switchesArray
 } 
 
-function createNewGraph(event)
+function createNewGraphOrLike(event)
 {
     var urlValue
     
@@ -53,35 +53,40 @@ function createNewGraph(event)
     }
 
 
-    if (event.target.classList[0] == "like-button")
+    if (event.target.parentNode.classList[0] == "like-button")
     {
+
         var titlesList = document.getElementsByClassName("title")
 
         for (var i = 0; i < titlesList.length; i++)
         {
-            if (titlesList[i].textContent == event.target.parentNode.parentNode.parentNode.getElementsByClassName("title")[0].textContent)
+            if (titlesList[i].textContent == event.target.parentNode.parentNode.parentNode.parentNode.getElementsByClassName("title")[0].textContent)
             {
                 if (likeButtonsSwitches[i] == false)
                 {
-                    var postLikeCounter = event.target.parentNode.parentNode.getElementsByClassName("like-counter")[0]
+                    var postLikeCounter = event.target.parentNode.parentNode.parentNode.getElementsByClassName("like-counter")[0]
                     postLikeCounter.textContent = parseInt(postLikeCounter.textContent) - 1
                     event.target.style.backgroundColor = "blue"
                     event.target.style.color = "black"
-                    event.target.style.borderWidth = "2px"
-                    event.target.style.borderStyle = "solid"
-                    event.target.style.borderColor = "black"
+                    event.target.parentNode.style.backgroundColor = "blue"
+                    event.target.parentNode.style.color = "black"
+                    event.target.parentNode.style.borderWidth = "2px"
+                    event.target.parentNode.style.borderStyle = "solid"
+                    event.target.parentNode.style.borderColor = "black"
                     likeButtonsSwitches[i] = true
                     sendLikeToServer(i, -1)
                 }
                 else if (likeButtonsSwitches[i] == true)
                 {
-                    var postLikeCounter = event.target.parentNode.parentNode.getElementsByClassName("like-counter")[0]
+                    var postLikeCounter = event.target.parentNode.parentNode.parentNode.parentNode.getElementsByClassName("like-counter")[0]
                     postLikeCounter.textContent = parseInt(postLikeCounter.textContent) + 1
                     event.target.style.backgroundColor = "aqua"
                     event.target.style.color = "white"
-                    event.target.style.borderWidth = "2px"
-                    event.target.style.borderStyle = "solid"
-                    event.target.style.borderColor = "darkblue" 
+                    event.target.parentNode.style.backgroundColor = "aqua"
+                    event.target.parentNode.style.color = "white"
+                    event.target.parentNode.style.borderWidth = "2px"
+                    event.target.parentNode.style.borderStyle = "solid"
+                    event.target.parentNode.style.borderColor = "darkblue" 
                     likeButtonsSwitches[i] = false 
                     sendLikeToServer(i, 1)          
                 }

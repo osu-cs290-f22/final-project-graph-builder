@@ -224,9 +224,10 @@ header a {
 
 /* A container that holds the chart element itself */
 #chart-container {
-    height: 75vh;
-    width: 75vh;
-    margin-top: 40px;
+    height: 70vh;
+    width: 70vh;
+    border: 2px solid black;
+    margin: 15px auto;
 }
 
 
@@ -243,7 +244,7 @@ header a {
 /* These contain the text boxes, and positions them correctly */
 .input-boxes-container
 {
-    margin: 10px 20px 10px 5px;
+    margin: 10px 10px 10px 5px;
 }
 
 
@@ -266,21 +267,21 @@ header a {
 /* The slider for opacity */
 #section-opacity
 {
-    width: 150px;
+    width: 125px;
 }
 
 /* These are the graph label for the initial input*/
 .input-graph-labels {
-    margin: auto 10px;
+    margin: auto 5px;
 }
 
 /* The grey container with the attatched "+" button */
 #initial-input-container {
     display: flex;
-    position: relative;
     margin-top: 5px;
     background-color: gray;
-    max-width: 850px;
+    max-width: 900px;
+    font-size: 15px;
 }
 
 /* The button to add the data from the initial container to a smaller container */
@@ -288,11 +289,17 @@ header a {
     background-color: blue;
     color: white;
     height: 30px;
-    width: 30px;
+    width: 60px;
     margin-left: auto;
     margin-right: 10px;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+#submit-button:hover {
+    cursor: pointer;
+    color: blue;
+    background-color: white;
 }
 
 
@@ -302,7 +309,7 @@ header a {
 /* The editable boxes that are inputted after the plus button is pressed*/
 .box-format
 {
-    width: 80px;
+    width: 60px;
 }
 
 /* The name box for bar, pie, and line graphs */
@@ -319,7 +326,7 @@ header a {
 
 /* These are the graph labels for individual data points*/
 .graph-labels {
-    margin: auto 10px;
+    margin: auto 5px;
 }
 
 /* The smaller blue containers that holds the editable data */
@@ -328,19 +335,27 @@ header a {
     position: relative;
     margin-top: 5px;
     margin-left: 10px;
-    background-color: blue;
+    background-color: lightskyblue;
+    border-radius: 10px;
 }
 
 /* Button to delete an editable layer of data*/
 .delete-button {
     background-color: gray;
-    color: red;
+    color: maroon;
     margin-left: auto;
-    margin-right: 40px;
+    margin-right: 10px;
     height: 30px;
     width: 30px;
     margin-top: auto;
     margin-bottom: auto;
+}
+
+/* Delete button hover */
+.delete-button:hover {
+    cursor: pointer;
+    color: red;
+    background-color: maroon;
 }
 
 /* The container for the arrow buttons */
@@ -357,7 +372,8 @@ header a {
     width: 40px;
     display: flex;
     text-align: center;
-    margin: 2px;
+    margin-top: 4px;
+    border-radius: 10px;
 }
 
 /* The arrow downwards button */
@@ -366,7 +382,8 @@ header a {
     width: 40px;
     display: flex;
     text-align: center;
-    margin: 2px;
+    margin-bottom: 4px;
+    border-radius: 10px;
 }
 
 /* The arrow icon itself */
@@ -381,13 +398,13 @@ header a {
 
 /* If hovering above the arrow button */
 .arrow-up:hover {
-    background-color: greenyellow;
+    background-color: lightgreen;
     color: black;
     cursor: pointer;
 }
  /* If hovering above the other arrow button */
 .arrow-down:hover {
-    background-color: greenyellow;
+    background-color: lightgreen;
     color: black;
     cursor: pointer;
 }
@@ -598,9 +615,144 @@ header a {
 
 #graph-body {
     margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#graph-inputs {
+    margin: auto;
+    border: 2px solid black;
+    width: 350px;
+}
+
+#graph-inputs h2 {
+    width: 350px;
+    margin: 10px 50px 10px 50px;
+}
+
+#graph-specs {
+    margin: 10px auto 10px 10px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #title-position {
     font-size: 50px;
     margin: auto;
+}
+
+.input-boxes-stylings {
+    margin: 15px 10px 15px 10px;
+}
+
+/* The publish button */
+#publish-button{
+    font-size: 50px;
+    background-color: limegreen;
+    width: 80%;
+    height: 100px;
+    margin: 20px 10% 20px 10%;
+
+}
+
+/* The publish button hover function */
+#publish-button:hover {
+    cursor: pointer;
+    background-color: lightgray;
+    color: limegreen;
+
+}
+
+#filter-box {
+    margin: auto;
+    margin-top: 125px;
+    background-color: darkgray;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.small-boxes {
+    width: 50px;
+    margin: 5px 4px;
+}
+
+.small-text {
+    width: 20px;
+    margin: 0px;
+}
+
+.filter-div {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#filter-button-container
+{
+    width: 90%;
+    display: flex;
+}
+
+#filter-button {
+    background-color: lightblue;
+    color: white;
+    width: 200px;
+    height: 70px;
+    font-size: 50px;
+    margin: 10px auto;
+}
+
+#filter-button:hover {
+    background-color: white;
+    color: lightblue;
+    cursor: pointer;
+}
+
+#filter-box-title {
+    width: 90%;
+    margin: 20px auto 0px auto;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+}
+
+#sort-by {
+    width: 200px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.filter-box {
+    margin: auto 20px;
+}
+
+.date-boxes-container {
+    margin: auto 20px;
+}
+
+.center-label {
+    margin: auto 0px;
+}
+
+#styles-404 {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    height: 300px;
 }
