@@ -4,30 +4,54 @@
         <meta charset="utf-8">
         <title>View Other Graphs</title>
 
-        <link rel="stylesheet" href="viewer.css">
+        <link rel="stylesheet" href="style.css">
         <script src="viewer.js" charset="utf-8" defer></script>
+        <script src="https://kit.fontawesome.com/31a9bcd812.js" crossorigin="anonymous"></script>
 
     </head>
     <body>
         <div>
+            <a href="/"><button id = "home-button"><p id = "house-icon"><i class="fa-sharp fa-solid fa-house"></i></p> <p id = "home-text">Home</p> </button></a>
+        </div>
+        <div>
             <div>
-                <h1>Graphs:</h1>
-                <h2>Look at Other Users Who Have Created Graphs:</h2>                
+                <h2 class = "title-position">Look at Other Users Who Have Created Graphs:</h2>                
             </div>
 
-            <div id="all-graphs">
-                <div class="graph-box">
+            <div>
+                <label>Search for Title</label>
+                <div>
+                    <input type="text">
+                </div>
+                <label>Search for Author</label>
+                <div>
+                    <input type="text">
+                </div>
+                <label>Time Search</label>
+                <div>
+                    <input type="text">
+                    <input type="text">
+                    <input type="text">
+                </div>
+                <div>
+                    <input type="text">
+                    <input type="text">
+                    <input type="text">
+                </div>
+                <select>
+                    <option>Newest</option>
+                    <option>Oldest</option>
+                    <option>Most Liked</option>
+                </select>
+            </div>
+
+            <div id="all-posts">
 
                 {{#each posts}}
                     {{> post}}
                 {{/each}}
-
-
-
-                </div>                
+               
             </div>
         </div>
-
-        {{{body}}}
     </body>
 </html>

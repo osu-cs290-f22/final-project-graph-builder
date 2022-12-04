@@ -12,11 +12,13 @@ const Chart = require('chart');
 const html2canvas = require('html2canvas');
 
 var graphs = require("./graphs.json")
-console.log(graphs)
 
 //app is how we'll use express
 const app = express();
 
+
+var tempData
+var sendTempData = false
 
 /*******************
  * SETTING UP HANDLEBARS
@@ -61,8 +63,7 @@ function renderMaker(type, inputArr, specArr) {
             type: type,
             inputs: inputArr,
             specs: specArr
-        }
-        )
+        })
     }
     return middleware;
 }
@@ -85,10 +86,28 @@ app.get('/scatter', renderMaker("Scatter Plot", allInputs, scatterSpecs));
 
 //get the view
 //I will absolutely want to replace it with a post function once I get that to work
-app.get('/view', function(req, res, next) {res.status(200).render("graphView", {posts: graphs})})
+app.get('/view', renderView)
 
+app.get("/graphs/:number", function (req, res, next) {
+    if (req.params.number < graphs.length && req.params.number > -1)
+    {
+        tempData = graphs[req.params.number]
+        sendTempData = true
+        res.status(200).send(tempData)
+    }
+    else
+    {
+        next()
+    }    
+})
 
-
+app.get("/pastData", function (req, res, next) {
+    if (sendTempData)
+    {
+        sendTempData = false
+        res.status(200).send(tempData)      
+    }    
+})
 
 app.post('/post', function (req, res, next) {
 
@@ -100,11 +119,14 @@ app.post('/post', function (req, res, next) {
         date: req.body.date,
         data: req.body.data,
         colors: req.body.colors,
+        opacities: req.body.opacities,
+        addedSymbol: req.body.addedSymbol,
         line: req.body.line,
         xLabel: req.body.xLabel,
         yLabel: req.body.yLabel,
         labels: req.body.labels,
-        xData: req.body.xData
+        xData: req.body.xData,
+        url: req.body.url
     }
   
     graphs.push(graphData)
@@ -133,6 +155,24 @@ app.post('/postimg', express.raw({type:"*/*"}), function(req, res, next) {
     //send back the image address so I can access the image
     res.send(imgAddress);
 });
+
+
+app.post("/addLike/:position", function (req, res, next) {
+    graphs[req.params.position].likes = graphs[req.params.position].likes + req.body.likeIncrease
+    fs.writeFile(
+        "./graphs.json",
+        JSON.stringify(graphs, null, 2), 
+        function (err) {
+        if (err) {
+            res.status(500).send("Error writing data")
+        }
+        else {
+            res.status(200).send("Graph Data Written")
+        }
+    })
+})
+
+//app.get('*', function(req, res, next) {res.status(404).sendFile("public/404.html")});
 
 
 app.listen(3000, function () {
