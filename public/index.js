@@ -7,18 +7,22 @@ setUpDerivative()
 function setUpDerivative() {
     fetch("/pastData", {
         method: "GET"
+    }).catch(function (err) {
+        alert("Unable to access graph data (url broken)")
     }).then(function(res) {
         if (res.status == 200)
         {
-            
-            return res.json()
+            return res.json()                
         }
         else
         {
             alert("Unable to send data")
         }
     }).then(function(json) {
-        formGraph(json)
+        if (json)
+        {
+            formGraph(json)          
+        }
     })
 
     //No error catch, as in most cases, this will fail, which it is designed to do, as this only works when loading old graph data in
@@ -66,7 +70,7 @@ createGraph()
 
 //Makes the entire document listen for changes, as there can be an infinite number of coordinates, so this is needed to not overwhelm the site
 var changeListener = document.body.addEventListener("change", resetGraph)
-var clickListener = document.body.addEventListener("click", deleteLayer)
+var clickListener = document.body.addEventListener("click", decideLayer)
 
 //The button to create a new row of data
 var addButton = document.getElementById("submit-button")
@@ -91,21 +95,100 @@ function inList(value, array)
     return false
 }
 
+//Moves a layer up or down in the DOM based on the arrow buttons clicked on it
+function moveLayer(event) {
+    var layerData = event.target.parentNode.parentNode
+    if (event.target.parentNode.classList[0] == "arrow-icon")
+    {
+        layerData = event.target.parentNode.parentNode.parentNode.parentNode
+    }
+    var layers = document.getElementsByClassName("input-container")
+    var graphDataContainer = document.getElementById("graph-specs")
+    var before = ""
+    var keepLooping = true
+
+    if (layers.length > 1)
+    {
+        for (var i = 0; i < layers.length; i++)
+        {
+            if (layerData.id == layers[i].id && keepLooping)
+            {
+                var switchDataBox
+
+                if (event.target.classList[0] == "arrow-up" || event.target.parentNode.parentNode.classList[0] == "arrow-up")
+                {
+                    if (i - 1 > -1)
+                    {
+                        switchDataBox = layers[i-1] 
+                        before = "beforebegin"
+                    }
+                    else
+                    {
+                        switchDataBox = layers[i -1 + layers.length]
+                        before = "afterend"
+                    }
+                }
+                else if (event.target.classList[0] = "arrow-down" || event.target.parentNode.parentNode.classList[0] == "arrow-down")
+                {
+                    if (i + 1 < layers.length)
+                    {
+                        switchDataBox = layers[i+1] 
+                        before = "afterend"
+                    }   
+                    else
+                    {
+                        switchDataBox = layers[i + 1 - layers.length]
+                        before = "beforebegin"
+                    }
+                }
+
+                if (switchDataBox)
+                {
+                    var permData = layerData
+                    var permSwitch = switchDataBox
+                    graphDataContainer.removeChild(document.getElementById(layerData.id))             
+                    permSwitch.insertAdjacentElement(before, permData)                
+
+                    keepLooping = false
+                } 
+            }
+        }
+    }
+
+    if (keepLooping == false)
+    {
+        resetGraph(event)
+    }
+}
+
 //Deletes a layer of data, which can hold all of the variables assigned to a bar/pie slice/point on the graphs. Done when "x" is clicked
 function deleteLayer(event)
 {
     
-    if (event.target.id == "delete-button")
+    if (event.target.classList[0] == "delete-button")
     {
         var allGraphData = document.getElementById("graph-specs")
         allGraphData.removeChild(event.target.parentNode)
         resetGraph(event)
     }
-    else if (event.target.parentNode.id == "delete-button")
+    else if (event.target.parentNode.classList[0] == "delete-button")
     {
         var allGraphData = document.getElementById("graph-specs")
         allGraphData.removeChild(event.target.parentNode.parentNode)
         resetGraph(event)
+    }
+}
+
+//Decides whether the click is for a delete button or an arrow button
+function decideLayer(event)
+{
+    if (event.target.classList[0] == "arrow-up" || event.target.classList[0] == "arrow-down" || event.target.parentNode.classList[0] == "arrow-icon")
+    {
+        moveLayer(event)
+    }
+    else
+    {
+        deleteLayer(event)
     }
 }
 
@@ -114,9 +197,9 @@ function resetGraph(event)
 {
     if (event.currentTarget)
     {
-        if (event.currentTarget.id == "submit-button" || event.target.id == "delete-button" || inList("x-value-boxes", event.target.classList) || inList("y-value-boxes", event.target.classList)
+        if (event.currentTarget.id == "submit-button" || event.target.id == "delete-button" || event.target.parentNode.id == "delete-button" || inList("x-value-boxes", event.target.classList) || inList("y-value-boxes", event.target.classList)
         || inList("section-name", event.target.classList) || inList("section-color", event.target.classList) || inList("section-value", event.target.classList)
-        || inList("section-opacity", event.target.classList))
+        || inList("section-opacity", event.target.classList) || inList("arrow-buttons", event.target.parentNode.classList) || inList("arrow-icon", event.target.parentNode.classList))
         {
             animationSwitch = true
         }
@@ -139,15 +222,18 @@ function resetGraph(event)
 // These activate when the "+" is pressed, and they will add a new, editable data row, based on which kind of chart it is 
 function finalizeScatterData(event) {
     //If the rows are not empty, a new row can actually be created
-    console.log(event)
     if (document.getElementById("x-value-boxes").value != "" && document.getElementById("y-value-boxes").value != "")
     {
         var valuesContainer = document.getElementById("initial-input-container")
-        
         valuesContainer.insertAdjacentHTML("beforebegin", "<div class = \"input-container\"></div>")
         var newContainers = document.getElementsByClassName("input-container")
         var thisContainer = newContainers[newContainers.length - 1]
+        thisContainer.id = (newContainers.length-1).toString()
         var types = ["number", "number"]
+
+
+        var arrows = Handlebars.templates.arrows()
+        thisContainer.insertAdjacentHTML("afterbegin", arrows)
 
         var graphInputData = Handlebars.templates.graphInputs
         
@@ -179,7 +265,12 @@ function finalizeSectionData(event) {
         valuesContainer.insertAdjacentHTML("beforebegin", "<div class = \"input-container\"></div>")
         var newContainers = document.getElementsByClassName("input-container")
         var thisContainer = newContainers[newContainers.length - 1]
+        thisContainer.id = (newContainers.length-1).toString()
+
         var types = ["text", "text", "number", "range"]
+
+        var arrows = Handlebars.templates.arrows()
+        thisContainer.insertAdjacentHTML("afterbegin", arrows)
 
         var graphInputData = Handlebars.templates.graphInputs
         
@@ -210,7 +301,11 @@ function finalizeLineData(event) {
         valuesContainer.insertAdjacentHTML("beforebegin", "<div class = \"input-container\"></div>")
         var newContainers = document.getElementsByClassName("input-container")
         var thisContainer = newContainers[newContainers.length - 1]
+        thisContainer.id = (newContainers.length-1).toString()
         var types = ["text", "text", "number"]
+
+        var arrows = Handlebars.templates.arrows()
+        thisContainer.insertAdjacentHTML("afterbegin", arrows)
 
         var graphInputData = Handlebars.templates.graphInputs
         
@@ -716,7 +811,7 @@ publishButton.addEventListener("click", publish)
 //Creates the graph based on .json data, and the associated url
 function formGraph (json)
 {
-    if (json[0] != "" && json[1] != "")
+    if (JSON.stringify(json) != "{}" && json[0] != "" && json[1] != "")
     {
         document.getElementById("title").value = json.title
         document.getElementById("username").value = json.userName
@@ -811,7 +906,7 @@ function pushData(title, userName, data, colors, opacities, labels, xLabel, yLab
         
        
             graphImage.toBlob(function(blob) {
-                    fetch('/postimg', {
+                    fetch('/postImage', {
                         method: 'POST',
                         body: blob,
                         headers: {"Content-Type": "image/png"}
@@ -847,13 +942,26 @@ function pushData(title, userName, data, colors, opacities, labels, xLabel, yLab
                             }),
                             headers: {"Content-Type":"application/json"}
                         }).then(function(res) {
-                            if (res.status != 200) {
+                            if (res.status === 200) {
+                                return res.text()
+                            }
+                            else
+                            {
                                 alert("Failed to get a 200 response code")
+                            }
+                        }).then(function (text) {
+                            if (text != "Graph Data Written"){
+                                alert(text)
+                                return false                                
+                            }
+                            return true
+                        }).then(function (sendPath) {
+                            if (sendPath)
+                            {
+                                window.location.pathname = "/view"
                             }
                         }).catch(function(err) {
                             alert("Error" + err)
-                        }).then(function () {
-                            window.location.pathname = "/view"
                         })                            
                     })
                 })

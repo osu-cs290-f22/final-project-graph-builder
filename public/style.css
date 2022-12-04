@@ -266,7 +266,7 @@ header a {
 }
 
 /* Button to delete an editable layer of data*/
-#delete-button {
+.delete-button {
     background-color: gray;
     color: red;
     margin-left: auto;
@@ -277,8 +277,54 @@ header a {
     margin-bottom: auto;
 }
 
+/* The container for the arrow buttons */
+.arrow-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50px;
+    margin-left: 5px;
+}
 
+/* The arrow upwards button */
+.arrow-up {
+    height: 15px;
+    width: 40px;
+    display: flex;
+    text-align: center;
+    margin: 2px;
+}
 
+/* The arrow downwards button */
+.arrow-down {
+    height: 15px;
+    width: 40px;
+    display: flex;
+    text-align: center;
+    margin: 2px;
+}
+
+/* The arrow icon itself */
+.arrow-icon {
+    font-size: 10px;
+    margin: auto;
+    height: 15px;
+    width: 10px;
+    display: flex;
+    text-align: center;
+}
+
+/* If hovering above the arrow button */
+.arrow-up:hover {
+    background-color: greenyellow;
+    color: black;
+    cursor: pointer;
+}
+ /* If hovering above the other arrow button */
+.arrow-down:hover {
+    background-color: greenyellow;
+    color: black;
+    cursor: pointer;
+}
 
 
 /* The publish button */
