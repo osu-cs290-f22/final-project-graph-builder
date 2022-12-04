@@ -1,11 +1,7 @@
-/*
-    Homepage stylings: These were not touched at all, so most likely no issues!
-*/
-
 header{
     display: inline-block;
     width: 100%;
-    height: 150px;
+    height: 165px;
     padding: 5px;
     background-color: lightgray;
     position: absolute;
@@ -16,17 +12,14 @@ header{
 .sub-title{
     font-size: 25px;
     font-weight: 100;
-    display: flex;
-    align-items: center;
-    position: relative;
-    top: -20px;
-    left: 250px;
-    text-align: center;
+    margin: 0 0 0 200px;
+    padding-bottom: 10px;
  }
  
  body{
     overflow-x: hidden;
     font-family: 'Montserrat', sans-serif;
+    margin: 0;
  }
 
 .content{
@@ -35,12 +28,9 @@ header{
 
 .site-title {
     font-size: 50px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    top: -20px;
-    left: 250px;
-    text-align: center;
+    margin: 0 0 0 200px;
+    padding-top: 13px;
+    width: 100%;
   }
   
 header a {
@@ -55,8 +45,9 @@ header a {
     text-align: center;
     position: absolute;
     top: 300px;
-    left: 190px;
+    left: 275px;
     padding: 5px;
+    margin: 0;
 }
 
 #view-others-button{
@@ -73,11 +64,12 @@ header a {
     left: 20px;
 }
 
-#categorical-graph{
+#categorical-graph-container{
     position: relative;
-    top: 450px;
-    left: 100px; 
+    top: 475px;
+    left: 310px; 
     display: inline-block;
+    justify-content: center;
     height: 200px;
     width: 300px;
     margin: 10px;
@@ -117,10 +109,10 @@ header a {
     cursor: pointer;
 }
 
-#numerical-graph{
+#numerical-graph-container{
     position: relative;
-    top: 450px;
-    left: 200px; 
+    top: 475px;
+    left: 300px; 
     display: inline-block;
     justify-content: center;
     height: 200px;
@@ -138,10 +130,6 @@ header a {
     text-align: center;
 }
 
-#info-button:hover{
-    cursor: pointer;
-}
-
 .hide{
     display: none;
 }
@@ -150,325 +138,3 @@ header a {
     display: block;
     color: black;
 }
-
-
-/*
----------- Graph Stylings ----------
-*/
-
-/* A container that holds the chart element itself */
-#chart-container {
-    height: 75vh;
-    width: 75vh;
-    margin-top: 40px;
-}
-
-
-/*------------ Stylings of "Global" input boxes ------------*/
-
-/* Where the graph specifications are entered */
-.input-boxes
-{
-    width: 200px;
-}
-
-/* The stylings of both types of input boxes*/
-
-/* These contain the text boxes, and positions them correctly */
-.input-boxes-container
-{
-    margin: 10px 20px 10px 5px;
-}
-
-
-
-
-/* --------- Stylings of the Initial Input Box ------------ */
-
-/* The initial boxes that graph data is entered into*/
-.graph-input-boxes
-{
-    width: 80px;
-}
-
-/* The name box for bar, pie, and line graphs */
-#section-name 
-{
-    width: 120px;
-}
-
-/* The slider for opacity */
-#section-opacity
-{
-    width: 150px;
-}
-
-/* These are the graph label for the initial input*/
-.input-graph-labels {
-    margin: auto 10px;
-}
-
-/* The grey container with the attatched "+" button */
-#initial-input-container {
-    display: flex;
-    position: relative;
-    margin-top: 5px;
-    background-color: gray;
-    max-width: 850px;
-}
-
-/* The button to add the data from the initial container to a smaller container */
-#submit-button {
-    background-color: blue;
-    color: white;
-    height: 30px;
-    width: 30px;
-    margin-left: auto;
-    margin-right: 10px;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-
-
-/* --------- Stylings of Editable, Published Input --------- */
-
-/* The editable boxes that are inputted after the plus button is pressed*/
-.box-format
-{
-    width: 80px;
-}
-
-/* The name box for bar, pie, and line graphs */
-.section-name 
-{
-    width: 120px;
-}
-
-/* The slider for opacity */
-.section-opacity
-{
-    width: 150px;
-}
-
-/* These are the graph labels for individual data points*/
-.graph-labels {
-    margin: auto 10px;
-}
-
-/* The smaller blue containers that holds the editable data */
-.input-container {
-    display: flex;
-    position: relative;
-    margin-top: 5px;
-    margin-left: 10px;
-    background-color: blue;
-}
-
-/* Button to delete an editable layer of data*/
-#delete-button {
-    background-color: gray;
-    color: red;
-    margin-left: auto;
-    margin-right: 40px;
-    height: 30px;
-    width: 30px;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-
-
-
-
-/* The publish button */
-#publish-button{
-    font-size: 15px;
-    background-color: limegreen;
-    position: relative;
-    top: 25px;
-    left: 0 px;
-}
-
-/*
------------ ViewPort Stylings ----------
-*/
-
-/* Contains every single post*/
-#all-posts {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-/* The bounds of each individual post (Makes it have a black border and properly positioned */
-.graph-box {
-    display: inline;
-    flex-wrap: wrap;
-    border: 2px solid black;
-    border-radius: 20px;
-    width: 85vw;
-    margin: 50px auto;
-}
-
-/* The box holding the actual image*/
-.image-box {
-    width: 80vw;
-    height: 40vh;
-    margin: 50px auto 20px auto;
-    display: flex;
-}
-
-/* The actual image itself*/
-.image-restrictions {
-    max-width: 80vw;
-    max-height: 40vh;
-    margin: auto;
-}
-
-/* The container for all of the buttons, needed so that the buttons are at the top of the post*/
-.buttons-container {
-    display: flex;
-    height: 15px;
-    margin: 0px;
-}
-
-/* The actual button container, needed so they all go to the right side of the screen*/
-.options-buttons {
-    margin-left: auto;
-    margin-right: 20px;
-    margin-top: 5px;
-    height: 35px;
-    display: flex;
-}
-
-/* The button to add a new graph based off of the current graph */
-.add-graph-button {
-    background-color: gold;
-    color: white;
-    height: 30px;
-    margin: auto;
-    font-size: 15px;
-}
-
-/* Graph add button interactions */
-.add-graph-button:hover{
-    cursor: pointer;
-    color: black;
-    background-color: greenyellow;
-}
-
-/* The like button */
-.like-button {
-    background-color: blue;
-    height: 40px;
-    font-size: 30px;
-    margin: auto 0px auto 15px;
-}
-
-/* Like button interactions */
-.like-button:hover {
-    cursor: pointer;
-    color: white;
-    background-color: aqua;
-    border: 2px solid darkblue;
-}
-
-/* The box containing the number of likes*/
-.like-counter-container {
-    background-color: gray;
-    height: 37px;
-    width: 40px;
-    border: 2px solid black;
-    border-radius: 2px;
-    margin: auto 5px auto 0px;
-    display: flex;
-}
-
-/* The actual text displaying the number of likes */
-.like-counter {
-    margin: auto;
-    color: white;
-    font-size: 30px;
-}
-
-
-/* The informational text for the post, large container */
-.info-text {
-    display: flex;
-    margin: auto;
-}
-
-/* Smaller container for text */
-.text-box {
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-    text-align: center;
-    width: 700px;
-}
-
-/* Title Text */
-.center-text.title {
-    font-size: 25px;
-    font-weight: 800;
-    width:700px;
-    margin: 10px auto;
-}
-
-/* Author text */
-.center-text.author{
-    font-size: 15px;
-    width: 700px;
-    margin: 10px auto;
-}
-
-/* Date text */
-.center-text.date {
-    font-size: 10px;
-    width: 700px;
-    margin: 10px auto;
-}
-
-/* Move the title so it is below the home button*/
-.title-position {
-    margin-top: 120px;
-}
-
-/* -------------- Universal Stylings -------------- */
-
-/* Home button (itself) */
-#home-button {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    height: 60px;
-    width: 60px;
-    font-size: 35px;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: rgb(4, 169, 251);
-    color: white;
-    border: 2px solid lightskyblue;
-    border-radius: 3px;
-}
-
-/* Home button interaction*/
-#home-button:hover {
-    cursor: pointer;
-    margin: -5px 5px 5px -5px;
-    height: 70px;
-    width: 70px;
-}
-
-/* Home icon */
-#house-icon {
-    margin: auto;
-    text-align: center;
-}
-
-/* Home text */
-#home-text {
-    font-size: 10px;
-    margin: 0px auto;
-}
-
