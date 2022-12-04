@@ -1,3 +1,27 @@
 [
-  
+  {
+    "likes": 0,
+    "graph": "09ba331a-6ad3-45f1-a17e-b8b6f46c544c.png",
+    "title": "Example",
+    "userName": "KieranHM",
+    "date": "Dec 03 2022",
+    "data": [
+      "3"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "opacities": [
+      "51"
+    ],
+    "addedSymbol": "",
+    "line": "",
+    "xLabel": "",
+    "yLabel": "ex",
+    "labels": [
+      "Example"
+    ],
+    "xData": "",
+    "url": "/bar"
+  }
 ]

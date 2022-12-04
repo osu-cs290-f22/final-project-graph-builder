@@ -64,7 +64,7 @@ header a {
     left: 20px;
 }
 
-#categorical-graph-container{
+.graph-select-container{
     position: relative;
     top: 475px;
     left: 310px; 
@@ -79,13 +79,13 @@ header a {
     background-color: rgb(199, 195, 195);
 }
 
-.categorical-contents h3{
+.graph-select-contents h3{
     display: inline-block;
     font-size: 30px;
     text-align: center;
 }
 
-#select-categorical-graph{
+.select-graph{
     font-size: 15px;
     border-radius: 3px;
     border: 1px solid #000000;
@@ -93,41 +93,8 @@ header a {
     left: 25px;
 }
 
-#select-categorical-graph:hover{
+.select-graph:hover{
     cursor: pointer;
-}
-
-#select-numerical-graph{
-    font-size: 15px;
-    border-radius: 3px;
-    border: 1px solid #000000;
-    background: lightgreen;
-    left: 35px;
-}
-
-#select-numerical-graph:hover{
-    cursor: pointer;
-}
-
-#numerical-graph-container{
-    position: relative;
-    top: 475px;
-    left: 300px; 
-    display: inline-block;
-    justify-content: center;
-    height: 200px;
-    width: 300px;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #000000;
-    border-radius: 3px;
-    background-color: rgb(199, 195, 195);
-}
-
-.numerical-contents h3{
-    display: inline-block;
-    font-size: 30px;
-    text-align: center;
 }
 
 .hide{

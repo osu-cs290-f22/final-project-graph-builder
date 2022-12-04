@@ -42,6 +42,7 @@ app.use(express.static('public'));
 const pbSpecs = JSON.parse(fs.readFileSync("pieBarSpecs.json"));
 const lineSpecs = JSON.parse(fs.readFileSync("lineSpecs.json"));
 const allInputs = JSON.parse(fs.readFileSync("allInputs.json"));
+const grChoices = JSON.parse(fs.readFileSync("graphChoices.json"));
 
 const barInputs = [allInputs[1], allInputs[4]]
 const lineInputs = [allInputs[0], allInputs[1], allInputs[2], allInputs[3], allInputs[4]]
@@ -70,7 +71,7 @@ function renderMaker(type, inputArr, specArr) {
 
 //get the home page
 
-app.get('/', function(req, res, next) {res.status(200).sendFile("/public/index.html")});
+app.get('/', function(req, res, next) {res.status(200).render("index", {selections: grChoices})});
 
 //get the bar graph
 app.get('/bar', renderMaker("Bar Graph", barInputs, pbSpecs));
@@ -83,6 +84,8 @@ app.get('/pie', renderMaker("Pie Chart", [], pbSpecs));
 
 //get the scatter plot
 app.get('/scatter', renderMaker("Scatter Plot", allInputs, scatterSpecs));
+
+app.get('/view', function(req, res, next) {res.status(200).render("graphView", {posts: graphs})})
 
 app.get("/graphs/:number", function (req, res, next) {
     if (req.params.number < graphs.length && req.params.number > -1)
