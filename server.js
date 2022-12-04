@@ -14,6 +14,9 @@ const html2canvas = require('html2canvas');
 //Json graph array
 var graphs = require("./graphs.json")
 
+//Choices for different data
+var graphChoices = JSON.parse(fs.readFileSync("graphChoices.json"));
+
 //Set up express
 const app = express();
 
@@ -77,13 +80,15 @@ function renderView(req, res, next) {
 
 
 //Home Page
-app.get('/', function(req, res, next) {res.status(200).sendFile("/public/index.html")});
+app.get('/', function(req, res, next) {
+    res.status(200).render("initial", {graphChoices})
+})
 
 //Bar Graph
 app.get('/bar', renderMaker("Bar Graph", barInputs, pbSpecs));
 
 //Line Graph
-app.get('/line', renderMaker("Line Graph", lineInputs, lineChartSpecs));
+app.get('/line', renderMaker("Line Chart", lineInputs, lineChartSpecs));
 
 //Pie Chart
 app.get('/pie', renderMaker("Pie Chart", [], pbSpecs));
@@ -93,6 +98,8 @@ app.get('/scatter', renderMaker("Scatter Plot", allInputs, scatterSpecs));
 
 //The viewport function
 app.get('/view', renderView)
+
+
 
 /****************
  * Not HTTP Requests (get data and post requests)
