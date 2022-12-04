@@ -79,14 +79,10 @@ app.get('/bar', renderMaker("Bar Graph", barInputs, pbSpecs));
 app.get('/line', renderMaker("Line Graph", lineInputs, lineChartSpecs));
 
 //get the pie chart
-app.get('/pie', renderMaker("pieChart.js", "Line Graph", [], pbSpecs));
+app.get('/pie', renderMaker("Pie Chart", [], pbSpecs));
 
 //get the scatter plot
 app.get('/scatter', renderMaker("Scatter Plot", allInputs, scatterSpecs));
-
-//get the view
-//I will absolutely want to replace it with a post function once I get that to work
-app.get('/view', renderView)
 
 app.get("/graphs/:number", function (req, res, next) {
     if (req.params.number < graphs.length && req.params.number > -1)
@@ -171,6 +167,8 @@ app.post("/addLike/:position", function (req, res, next) {
         }
     })
 })
+
+app.get('*', function(req, res, next) {res.status(404).render("404")});
 
 //app.get('*', function(req, res, next) {res.status(404).sendFile("public/404.html")});
 
