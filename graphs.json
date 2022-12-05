@@ -1,64 +1,6 @@
 [
   {
-    "likes": 2,
-    "graph": "e14e2197-7bfc-4b3c-8ed5-95c434609807.png",
-    "title": "asdfasfnght",
-    "userName": "asfdafsdf",
-    "date": "Dec 04 2022",
-    "data": [
-      "21",
-      "1",
-      "23",
-      "21",
-      "121"
-    ],
-    "colors": "purple",
-    "opacities": "34",
-    "addedSymbol": "",
-    "line": true,
-    "xLabel": "asdfsaf",
-    "yLabel": "dsafafasdf",
-    "labels": "",
-    "xData": [
-      "67",
-      "1",
-      "11",
-      "3",
-      "113"
-    ],
-    "url": "/scatter",
-    "id": 10
-  },
-  {
-    "likes": 10,
-    "graph": "96ce6489-609e-492c-9d3c-8e43ecba2beb.png",
-    "title": "asdfasf",
-    "userName": "asfdafsdf",
-    "date": "Oct 24 2022",
-    "data": [
-      "1",
-      "23",
-      "121",
-      "21"
-    ],
-    "colors": "red",
-    "opacities": "87",
-    "addedSymbol": "",
-    "line": true,
-    "xLabel": "asdfsaf",
-    "yLabel": "dsafafasdf",
-    "labels": "",
-    "xData": [
-      "1",
-      "11",
-      "113",
-      "3"
-    ],
-    "url": "/scatter",
-    "id": 9
-  },
-  {
-    "likes": 4,
+    "likes": 5,
     "graph": "cd656e62-5e79-4be6-a1ac-495ba35b75ab.png",
     "title": "Cubic Formula",
     "userName": "Jack Kammerer",
@@ -102,7 +44,7 @@
     "id": 8
   },
   {
-    "likes": 9,
+    "likes": 10,
     "graph": "9a241c40-e1df-403b-8617-04fbc9bfed38.png",
     "title": "CO2 Emissions 2022",
     "userName": "Jack Kammerer",
@@ -144,7 +86,7 @@
     "id": 7
   },
   {
-    "likes": 7,
+    "likes": 8,
     "graph": "64a0e67f-73b8-4ee5-af97-39fd3086f0c9.png",
     "title": "CO2 Emissions 2021",
     "userName": "Jack Kammerer",

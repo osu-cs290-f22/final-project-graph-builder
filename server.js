@@ -105,12 +105,6 @@ app.get('/scatter', renderMaker("Scatter Plot Creator", allInputs, scatterSpecs)
 app.get('/view', renderView)
 
 
-//WILL PROBABLY DELETE
-const colors = JSON.parse(fs.readFileSync("colors.json"))
-app.get("/colors", function (req, res, next) {
-    res.status(200).render("colorPage", colors)
-})
-
 
 
 /****************
