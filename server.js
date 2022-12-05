@@ -42,14 +42,18 @@ app.use(express.json())
  * Set up the json files, and the arrays for the required specifications and inputs for certain types of graphs
  *******************/
 
-const pbSpecs = JSON.parse(fs.readFileSync("pieBarSpecs.json"));
-const lineSpecs = JSON.parse(fs.readFileSync("lineSpecs.json"));
-const allInputs = JSON.parse(fs.readFileSync("allInputs.json"));
+//const pbSpecs = JSON.parse(fs.readFileSync("pieBarSpecs.json"));
+//const lineSpecs = JSON.parse(fs.readFileSync("lineSpecs.json"));
+//Specification Data
+const allSpecs = JSON.parse(fs.readFileSync("specs.json"))
+const allInputs = JSON.parse(fs.readFileSync("inputs.json"));
 
 const barInputs = [allInputs[1], allInputs[4]]
+const pieBarSpecs = [allSpecs[0], allSpecs[3], allSpecs[4], allSpecs[5]]
+
 const lineInputs = [allInputs[0], allInputs[1], allInputs[2], allInputs[3], allInputs[4]]
-const scatterSpecs = [lineSpecs[1], lineSpecs[2]]
-const lineChartSpecs = [lineSpecs[0], lineSpecs[2]]
+const scatterSpecs = [allSpecs[1], allSpecs[2]]
+const lineChartSpecs = [allSpecs[0], allSpecs[2]]
 
 
 /***************
@@ -86,19 +90,26 @@ app.get('/', function(req, res, next) {
 })
 
 //Bar Graph
-app.get('/bar', renderMaker("Bar Graph Creator", barInputs, pbSpecs));
+app.get('/bar', renderMaker("Bar Graph Creator", barInputs, pieBarSpecs));
 
 //Line Graph
 app.get('/line', renderMaker("Line Chart Creator", lineInputs, lineChartSpecs));
 
 //Pie Chart
-app.get('/pie', renderMaker("Pie Chart Creator", [], pbSpecs));
+app.get('/pie', renderMaker("Pie Chart Creator", [], pieBarSpecs));
 
 //Scatter Plot
 app.get('/scatter', renderMaker("Scatter Plot Creator", allInputs, scatterSpecs));
 
 //The viewport function
 app.get('/view', renderView)
+
+
+//WILL PROBABLY DELETE
+const colors = JSON.parse(fs.readFileSync("colors.json"))
+app.get("/colors", function (req, res, next) {
+    res.status(200).render("colorPage", colors)
+})
 
 
 
@@ -110,7 +121,7 @@ app.get('/view', renderView)
 app.get("/graphs/:number", function (req, res, next) {
     if (req.params.number < graphs.length && req.params.number > -1)
     {
-        tempData = graphs[req.params.number]
+        tempData = graphs[graphs.length - 1 - req.params.number]
         sendTempData = true
         res.status(200).send(tempData)
     }
@@ -163,10 +174,11 @@ app.post('/post', function (req, res, next) {
             yLabel: req.body.yLabel,
             labels: req.body.labels,
             xData: req.body.xData,
-            url: req.body.url
+            url: req.body.url,
+            id: graphs.length
         }
     
-        graphs.push(graphData)
+        graphs.unshift(graphData)
         fs.writeFile(
             "./graphs.json", 
             JSON.stringify(graphs, null, 2), 
@@ -196,7 +208,7 @@ app.post('/postImage', express.raw({type:"*/*"}), function(req, res, next) {
 
 //Adds a like to a certain post based on the URL
 app.post("/addLike/:position", function (req, res, next) {
-    graphs[req.params.position].likes = graphs[req.params.position].likes + req.body.likeIncrease
+    graphs[graphs.length - 1 -req.params.position].likes = graphs[graphs.length - 1 - req.params.position].likes + req.body.likeIncrease
     fs.writeFile(
         "./graphs.json",
         JSON.stringify(graphs, null, 2), 

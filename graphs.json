@@ -1,10 +1,112 @@
 [
   {
-    "likes": 7,
+    "likes": 2,
+    "graph": "e14e2197-7bfc-4b3c-8ed5-95c434609807.png",
+    "title": "asdfasfnght",
+    "userName": "asfdafsdf",
+    "date": "Dec 04 2022",
+    "data": [
+      "21",
+      "1",
+      "23",
+      "21",
+      "121"
+    ],
+    "colors": "purple",
+    "opacities": "34",
+    "addedSymbol": "",
+    "line": true,
+    "xLabel": "asdfsaf",
+    "yLabel": "dsafafasdf",
+    "labels": "",
+    "xData": [
+      "67",
+      "1",
+      "11",
+      "3",
+      "113"
+    ],
+    "url": "/scatter",
+    "id": 10
+  },
+  {
+    "likes": 10,
+    "graph": "96ce6489-609e-492c-9d3c-8e43ecba2beb.png",
+    "title": "asdfasf",
+    "userName": "asfdafsdf",
+    "date": "Oct 24 2022",
+    "data": [
+      "1",
+      "23",
+      "121",
+      "21"
+    ],
+    "colors": "red",
+    "opacities": "87",
+    "addedSymbol": "",
+    "line": true,
+    "xLabel": "asdfsaf",
+    "yLabel": "dsafafasdf",
+    "labels": "",
+    "xData": [
+      "1",
+      "11",
+      "113",
+      "3"
+    ],
+    "url": "/scatter",
+    "id": 9
+  },
+  {
+    "likes": 4,
+    "graph": "cd656e62-5e79-4be6-a1ac-495ba35b75ab.png",
+    "title": "Cubic Formula",
+    "userName": "Jack Kammerer",
+    "date": "Jan 07 2019",
+    "data": [
+      "-125",
+      "-64",
+      "-27",
+      "-8",
+      "-1",
+      "0",
+      "1",
+      "8",
+      "27",
+      "64",
+      "125",
+      "216"
+    ],
+    "colors": "red",
+    "opacities": "91",
+    "addedSymbol": "",
+    "line": true,
+    "xLabel": "X-Values",
+    "yLabel": "Y-Values",
+    "labels": "",
+    "xData": [
+      "-5",
+      "-4",
+      "-3",
+      "-2",
+      "-1",
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "url": "/scatter",
+    "id": 8
+  },
+  {
+    "likes": 9,
     "graph": "9a241c40-e1df-403b-8617-04fbc9bfed38.png",
     "title": "CO2 Emissions 2022",
     "userName": "Jack Kammerer",
-    "date": "Dec 03 2022",
+    "date": "July 04 2015",
     "data": [
       "457",
       "894",
@@ -38,14 +140,15 @@
       "Coal"
     ],
     "xData": "",
-    "url": "/bar"
+    "url": "/bar",
+    "id": 7
   },
   {
-    "likes": 2,
+    "likes": 7,
     "graph": "64a0e67f-73b8-4ee5-af97-39fd3086f0c9.png",
     "title": "CO2 Emissions 2021",
     "userName": "Jack Kammerer",
-    "date": "Dec 03 2022",
+    "date": "October 03 2022",
     "data": [
       "755",
       "755",
@@ -79,10 +182,11 @@
       "Transporation"
     ],
     "xData": "",
-    "url": "/bar"
+    "url": "/bar",
+    "id": 6
   },
   {
-    "likes": 1,
+    "likes": 7,
     "graph": "e297b0f8-c0de-4a42-9784-1e637345f696.png",
     "title": "Mineral Extraction 1995",
     "userName": "Jack Kammerer",
@@ -116,14 +220,15 @@
       "Diamond"
     ],
     "xData": "",
-    "url": "/pie"
+    "url": "/pie",
+    "id": 5
   },
   {
-    "likes": 1,
+    "likes": 2,
     "graph": "0906c3cc-e7e3-4d90-846b-f91ea90d2759.png",
     "title": "Mineral Extraction 2022",
     "userName": "Jack Kammerer",
-    "date": "Dec 03 2022",
+    "date": "Dec 03 2016",
     "data": [
       "5",
       "7",
@@ -157,14 +262,15 @@
       "Bronze"
     ],
     "xData": "",
-    "url": "/pie"
+    "url": "/pie",
+    "id": 4
   },
   {
-    "likes": 1,
+    "likes": 6,
     "graph": "a74b8df1-fd61-4e02-98b0-a6921fb1b4c2.png",
     "title": "Microvidia Stock Price 2020",
     "userName": "Jack Kammerer",
-    "date": "Dec 03 2022",
+    "date": "May 24 2013",
     "data": [
       "300",
       "140",
@@ -184,10 +290,11 @@
       "Q4 "
     ],
     "xData": "",
-    "url": "/line"
+    "url": "/line",
+    "id": 3
   },
   {
-    "likes": 2,
+    "likes": 6,
     "graph": "c714dead-4435-4210-a90a-b0c5fbd27dd3.png",
     "title": "Microvidia Stock Price 2019 - 2022",
     "userName": "Jack Kammerer",
@@ -233,10 +340,11 @@
       "Q3 2022"
     ],
     "xData": "",
-    "url": "/line"
+    "url": "/line",
+    "id": 2
   },
   {
-    "likes": 1,
+    "likes": 5,
     "graph": "32ba6cfd-a425-408d-af91-bac3b3255c7f.png",
     "title": "Quadratic Equation",
     "userName": "Jack Kammerer",
@@ -270,10 +378,11 @@
       "9",
       "12"
     ],
-    "url": "/scatter"
+    "url": "/scatter",
+    "id": 1
   },
   {
-    "likes": 1,
+    "likes": 10,
     "graph": "59a3b5aa-3f94-4c9b-9df5-ce12e7b13414.png",
     "title": "Quadratic Equation Fixed",
     "userName": "Jack Kammerer",
@@ -331,6 +440,7 @@
       "11",
       "12"
     ],
-    "url": "/scatter"
+    "url": "/scatter",
+    "id": 0
   }
 ]

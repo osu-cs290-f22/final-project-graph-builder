@@ -666,9 +666,9 @@ header a {
 
 #filter-box {
     margin: auto;
-    margin-top: 125px;
+    margin-top: 100px;
     background-color: darkgray;
-    width: 80%;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -676,34 +676,38 @@ header a {
 
 .small-boxes {
     width: 50px;
-    margin: 5px 4px;
-}
-
-.small-text {
-    width: 20px;
     margin: 0px;
 }
 
+.small-text {
+    width: 200px;
+    display: flex;
+}
+.small-text p{
+    width: 20px;
+    margin: auto;
+}
+
 .filter-div {
-    width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 20px;
+    width: 300px;
 }
 
 #filter-button-container
 {
-    width: 90%;
+    width: 100%;
     display: flex;
 }
 
 #filter-button {
     background-color: lightblue;
     color: white;
-    width: 200px;
-    height: 70px;
-    font-size: 50px;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
     margin: 10px auto;
 }
 
@@ -722,31 +726,24 @@ header a {
 }
 
 #sort-by {
-    width: 200px;
-    height: 30px;
+    width: 300px;
     display: flex;
     justify-content: center;
     font-size: 20px;
     border-radius: 10px;
+    margin: 0px 10px;
 }
 
-.center {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
+
 
 .filter-box {
     margin: auto 20px;
 }
 
 .date-boxes-container {
-    margin: auto 20px;
+    margin: 0px 10px;
 }
 
-.center-label {
-    margin: auto 0px;
-}
 
 #styles-404 {
     margin-top: 100px;

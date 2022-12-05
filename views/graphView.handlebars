@@ -11,52 +11,49 @@
 
         <div>
             <div id="filter-box">
-                <h2 id="filter-box-title">Filter</h2>
                 <div class="filter-div">
-                    <label>Search for Title</label>
+                    <label class="filter-box">Search for Title</label>
                     <div>
-                        <input id="filter-title" class="filter-box" type="text">
+                        <input id="filter-title"  type="text">
                     </div>                    
                 </div>
 
                 <div class="filter-div">
-                    <label>Search for Author</label>
+                    <label class="filter-box">Search for Author</label>
                     <div>
-                        <input id = "filter-author" class="filter-box" type="text">
+                        <input id = "filter-author" type="text">
                     </div>                    
                 </div>
 
                 <div class="filter-div">
-                    <label class="center-label">Time Search</label>
+                    <label class="filter-box">Time Search</label>
                     <div class = "date-boxes-container">
-                        <input class = "small-boxes" placeholder="month" type="text">
-                        <input class = "small-boxes" placeholder="day" type="text">
-                        <input class = "small-boxes" placeholder="year" type="text">
+                        <input class = "small-boxes" placeholder="Month" type="text">
+                        <input class = "small-boxes" placeholder="Day" type="number">
+                        <input class = "small-boxes" placeholder="Year" type="number">
                     </div>
                     <div class="small-text">
                         <p>To</p>
                     </div>
                     <div class = "date-boxes-container">
-                        <input class = "small-boxes" placeholder="month" type="text">
-                        <input class = "small-boxes" placeholder="day" type="text">
-                        <input class = "small-boxes" placeholder="year" type="text">
+                        <input class = "small-boxes" placeholder="Month" type="text">
+                        <input class = "small-boxes" placeholder="Day" type="number">
+                        <input class = "small-boxes" placeholder="Year" type="number">
                     </div>
                 </div>
                 <div class="filter-div">
-                    <label>Sort By:</label>
-                    <div class= "center">
+                    <label class="filter-box">Sort By:</label>
+                    <div>
                         <select id="sort-by">
-                            <option selected>Oldest</option>
-                            <option>Newest</option>
-                            <option>Most Liked</option>
+                           <option selected>Newest</option> 
+                           <option>Oldest</option> 
+                           <option>Most Liked</option>
                         </select>
                     </div>
                 </div>
 
                 <div id="filter-button-container">
-                    <button id="filter-button">
-                        Filter
-                    </button>                    
+                    <button id="filter-button">Search</button>                    
                 </div>
             </div>
 
