@@ -1,10 +1,84 @@
 [
   {
-    "likes": 5,
+    "likes": 3,
+    "graph": "d81facfa-ffce-4141-9794-45a5075b1161.png",
+    "title": "Snow Fall vs. Elevation Expanded",
+    "userName": "John Doe",
+    "date": "Dec 05 2022",
+    "data": [
+      "0",
+      "1",
+      "3",
+      "7",
+      "11",
+      "24",
+      "35",
+      "45",
+      "89",
+      "100"
+    ],
+    "colors": "blue",
+    "opacities": "18",
+    "addedSymbol": "",
+    "line": true,
+    "xLabel": "Elevation (Thousands of Feet)",
+    "yLabel": "Snow Fall (inches)",
+    "labels": "",
+    "xData": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "url": "/scatter",
+    "id": 10
+  },
+  {
+    "likes": 3,
+    "graph": "9e97b4d2-38d0-4092-a8a6-10a0eb62d051.png",
+    "title": "Snow Fall vs. Elevation",
+    "userName": "John Doe",
+    "date": "Dec 05 2022",
+    "data": [
+      "0.5",
+      "1",
+      "3",
+      "7",
+      "11",
+      "24",
+      "35"
+    ],
+    "colors": "aqua",
+    "opacities": "87",
+    "addedSymbol": "",
+    "line": true,
+    "xLabel": "Elevation (Thousands of Feet)",
+    "yLabel": "Snow Fall (inches)",
+    "labels": "",
+    "xData": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "url": "/scatter",
+    "id": 9
+  },
+  {
+    "likes": 6,
     "graph": "cd656e62-5e79-4be6-a1ac-495ba35b75ab.png",
     "title": "Cubic Formula",
     "userName": "Jack Kammerer",
-    "date": "Jan 07 2019",
+    "date": "Jan 07 2022",
     "data": [
       "-125",
       "-64",
@@ -48,7 +122,7 @@
     "graph": "9a241c40-e1df-403b-8617-04fbc9bfed38.png",
     "title": "CO2 Emissions 2022",
     "userName": "Jack Kammerer",
-    "date": "July 04 2015",
+    "date": "Mar 18 2019",
     "data": [
       "457",
       "894",
@@ -90,7 +164,7 @@
     "graph": "64a0e67f-73b8-4ee5-af97-39fd3086f0c9.png",
     "title": "CO2 Emissions 2021",
     "userName": "Jack Kammerer",
-    "date": "October 03 2022",
+    "date": "May 25 2018",
     "data": [
       "755",
       "755",
@@ -132,7 +206,7 @@
     "graph": "e297b0f8-c0de-4a42-9784-1e637345f696.png",
     "title": "Mineral Extraction 1995",
     "userName": "Jack Kammerer",
-    "date": "Dec 03 2022",
+    "date": "Feb 09 2017",
     "data": [
       "23",
       "45",
@@ -166,11 +240,11 @@
     "id": 5
   },
   {
-    "likes": 2,
+    "likes": 3,
     "graph": "0906c3cc-e7e3-4d90-846b-f91ea90d2759.png",
     "title": "Mineral Extraction 2022",
     "userName": "Jack Kammerer",
-    "date": "Dec 03 2016",
+    "date": "Apr 01 2016",
     "data": [
       "5",
       "7",
@@ -208,11 +282,11 @@
     "id": 4
   },
   {
-    "likes": 6,
+    "likes": 7,
     "graph": "a74b8df1-fd61-4e02-98b0-a6921fb1b4c2.png",
     "title": "Microvidia Stock Price 2020",
     "userName": "Jack Kammerer",
-    "date": "May 24 2013",
+    "date": "June 29 2015",
     "data": [
       "300",
       "140",
@@ -240,7 +314,7 @@
     "graph": "c714dead-4435-4210-a90a-b0c5fbd27dd3.png",
     "title": "Microvidia Stock Price 2019 - 2022",
     "userName": "Jack Kammerer",
-    "date": "Dec 03 2022",
+    "date": "July 31 2014",
     "data": [
       "275",
       "283",
@@ -286,11 +360,11 @@
     "id": 2
   },
   {
-    "likes": 5,
+    "likes": 6,
     "graph": "32ba6cfd-a425-408d-af91-bac3b3255c7f.png",
     "title": "Quadratic Equation",
     "userName": "Jack Kammerer",
-    "date": "Dec 03 2022",
+    "date": "Aug 22 2011",
     "data": [
       "0",
       "1",
@@ -324,11 +398,11 @@
     "id": 1
   },
   {
-    "likes": 10,
+    "likes": 11,
     "graph": "59a3b5aa-3f94-4c9b-9df5-ce12e7b13414.png",
     "title": "Quadratic Equation Fixed",
     "userName": "Jack Kammerer",
-    "date": "Dec 03 2022",
+    "date": "Sep 03 2010",
     "data": [
       "144",
       "100",

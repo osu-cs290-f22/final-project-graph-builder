@@ -162,11 +162,13 @@ header a {
 }
 
 .button-info-container {
+    width: 50px;
     position: relative;
 }
 
 .info-button {
     margin: 0px;
+    width: 20px;
 }
 
 /* When hovering above the info button, and hidden, display */
@@ -246,6 +248,7 @@ header a {
 .input-boxes-container
 {
     margin: 10px 10px 10px 5px;
+    display: flex;
 }
 
 
@@ -448,6 +451,11 @@ header a {
     margin: 15px 10px 15px 10px;
 }
 
+.info-button-helper {
+    width: 300px;
+    display: flex;
+}
+
 /* The publish button */
 #publish-button{
     font-size: 50px;
@@ -488,7 +496,7 @@ header a {
 /* The box holding the actual image*/
 .image-box {
     width: 80vw;
-    height: 40vh;
+    height: 60vh;
     margin: 50px auto 20px auto;
     display: flex;
 }
@@ -496,7 +504,7 @@ header a {
 /* The actual image itself*/
 .image-restrictions {
     max-width: 80vw;
-    max-height: 40vh;
+    max-height: 60vh;
     margin: auto;
 }
 
@@ -543,9 +551,6 @@ header a {
 /* Like button interactions */
 .like-button:hover {
     cursor: pointer;
-    color: white;
-    background-color: aqua;
-    border: 2px solid darkblue;
 }
 
 /* The box containing the number of likes*/

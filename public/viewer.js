@@ -158,16 +158,16 @@ function determinePopularity(value)
 
 function performFilter()
 {
-    popularityHelper = Array.from(oldestPostsList)
+    popularityHelper = Array.from(newestPostsList)
     determinePopularity(popularityHelper.length)
     
-    var titleFilter = document.getElementById("filter-title").value
-    var nameFilter = document.getElementById("filter-author").value
+    var titleFilter = document.getElementById("filter-title").value.toLowerCase()
+    var nameFilter = document.getElementById("filter-author").value.toLowerCase()
     var allDates = document.getElementsByClassName("date-boxes-container")
     var date1 = []
-    date1.push(allDates[0].childNodes[1].value) 
-    date1.push(allDates[0].childNodes[3].value) 
-    date1.push(allDates[0].childNodes[5].value)
+    date1.push(allDates[0].childNodes[1].value.toLowerCase()) 
+    date1.push(allDates[0].childNodes[3].value.toLowerCase()) 
+    date1.push(allDates[0].childNodes[5].value.toLowerCase())
     var date2 = []
     date2.push(allDates[1].childNodes[1].value) 
     date2.push(allDates[1].childNodes[3].value) 
@@ -237,7 +237,7 @@ function dateCompare (inputDate, compareDate, desired)
 }
 
 function monthCompare(inputMonth, inputDay, compareMonth, compareDay, desired) {
-    var months = ["january", "february", "march", "april", "may", "june", "july", "august", "october", "november", "december"]
+    var months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
 
     var inputMonthValue
     var compareMonthValue

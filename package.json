@@ -5,7 +5,7 @@
   "main": "server.js",
     "scripts": {
     "start": "node server.js",
-    "build": "handlebars views/partials/graphInputs.handlebars -f public/graphInputs.js & handlebars views/partials/deleteButton.handlebars -f public/deleteButton.js & handlebars views/partials/arrows.handlebars -f public/arrows.js",
+    "build": "handlebars views/partials/graphInputs.handlebars -f public/graphInputs.js & handlebars views/partials/deleteButton.handlebars -f public/deleteButton.js & handlebars views/partials/arrows.handlebars -f public/arrows.js & handlebars views/partials/infoButton.handlebars -f public/infoButton.js",
     "prestart": "npm run build",
     "predev": "npm run build",
     "dev": "nodemon server.js"

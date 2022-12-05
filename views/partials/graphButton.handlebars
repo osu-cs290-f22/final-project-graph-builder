@@ -1,10 +1,9 @@
 <section class="graph-button-container">
 
     <div class="button-contents">
-        <div class="button-info-container">
-            <button class="action-button info-button">i</button>
-            <div class="hide text-layout"><p class="info-text">{{infoText}}</p></div>
-        </div>
+        {{>infoButton}}
+    </div>
+    <div>
         <div class="button-title-container">
             <h3>{{chart}}</h3>
             <a href="{{graphLink}}" class = "graph-type-button"><button class ="select-graph action-button"> <i class="{{icon}}"></i> <p class = "icon-text">Select {{chart}} Here!</p> </button></a>

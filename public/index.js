@@ -58,15 +58,111 @@ var type = getType()[0]
 var chartData = getType()[1]
 
 
-//All colors are laid out here, will probably move to a more extensive json or other type of folder
-var allColors = ["red", "orange", "yellow", "green", "blue", "purple", "black", "gray"]
-var colorRGB = ["255,0,0", "255,128,0", "255,255,0", "0,204,0", "0,0,255", "204,0,204", "0,0,0", "128,128,128"] 
+//All colors laid out in the json
+
+var colors = [
+    {
+        "color" : "red",
+        "value" : "255, 0, 0"
+    },
+    {
+        "color" : "orange",
+        "value" : "255, 128, 0"
+    },
+    {
+        "color" : "yellow",
+        "value" : "255, 255, 0"
+    },
+    {
+        "color" : "green",
+        "value" : "0, 204, 0"
+    },
+    {
+        "color" : "blue",
+        "value" : "0, 0, 255"
+    },
+    {
+        "color" : "purple",
+        "value" : "204, 0, 204"
+    },
+    {
+        "color" : "black",
+        "value" : "0, 0, 0"
+    },
+    {
+        "color" : "gray",
+        "value" : "128, 128, 128"
+    },
+    {
+        "color" : "grey",
+        "value" : "128, 128, 128"
+    },
+    {
+        "color" : "white",
+        "value" : "255, 255, 255"
+    },
+    {
+        "color" : "gold",
+        "value" : "255, 215, 0"
+    },
+    {
+        "color" : "aqua",
+        "value" : "0, 255, 255"
+    },
+    {
+        "color" : "brown",
+        "value" : "165, 42, 42"
+    },
+    {
+        "color" : "pink",
+        "value" : "255, 192, 203"
+    }
+]
+
+function createColorInfo (){
+    var colorInfo = ""
+    colors.forEach(function (colorText) {
+        if (colors.indexOf(colorText) != colors.length - 1)
+        {
+            colorInfo = colorInfo + colorText.color + ", "            
+        }
+        else
+        {
+            colorInfo = colorInfo + colorText.color
+        }
+    })
+
+    return colorInfo
+}
+
+function addColorInfo() {
+    var informationButton = Handlebars.templates.infoButton
+    var information = createColorInfo()
+
+    if (document.getElementById("color"))
+    {
+        var colorTextBox = document.getElementById("color").parentNode
+        var colorButton = informationButton({
+            infoText: information
+        })
+        colorTextBox.insertAdjacentHTML("beforeend", colorButton)
+    }
+    else if (document.getElementById("section-color"))
+    {
+        var colorTextBox = document.getElementById("section-color").parentNode
+        var colorButton = informationButton({
+            infoText: information
+        })
+        colorTextBox.insertAdjacentHTML("beforeend", colorButton)
+    }
+}
 
 //If true, animate the graph, if false, do not animate the graph
 var animationSwitch = true
 
 //Creates the graph the instant the website is opened, but it is empty
 createGraph()
+addColorInfo()
 
 //Makes the entire document listen for changes, as there can be an infinite number of coordinates, so this is needed to not overwhelm the site
 var changeListener = document.body.addEventListener("change", resetGraph)
@@ -432,31 +528,39 @@ function accessValues () {
 
 //Creates an array of colors based on opacity and color (pie and bar)
 function createColors () {
-    var colorValues = document.getElementsByClassName("section-color")
-    var opacityValues = document.getElementsByClassName("section-opacity")
+    var colorValuesInitial = document.getElementsByClassName("section-color")
+    var opacityValuesInitial = document.getElementsByClassName("section-opacity")
+    var colorValues = []
+    var opacityValues = []
+    
+    for (var i = 0; i < colorValuesInitial.length; i++)
+    {
+        colorValues.push(colorValuesInitial[i].value)
+        opacityValues.push(opacityValuesInitial[i].value)
+    }
+
     var colorArray = []
     var borderArray = []
     var colorsArray = []
+    var additionalPush = true
 
-    for (var i = 0; i < colorValues.length; i++)
-    {
-        var counter = 0
-        for (var j = 0; j < allColors.length; j++)
-        {
-            if (colorValues[i].value.toLowerCase() == allColors[j])
+    colorValues.forEach( function (inputColor) {
+        additionalPush = true
+        colors.forEach( function (elemColor) {
+            if (elemColor.color == inputColor.toLowerCase())
             {
-                colorArray.push("rgba(" + colorRGB[j] + ", " + parseInt(opacityValues[i].value)/100 + ")")
-                borderArray.push("rgba(" + colorRGB[j] + ", 1)")
-                var counter = 1                 
+                colorArray.push("rgba(" + elemColor.value + ", " + parseInt(opacityValues[colorValues.indexOf(elemColor.color)])/100 + ")")
+                borderArray.push("rgba(" + elemColor.value + ", 1)")       
+                additionalPush = false         
             }
-           
-        }
-        if (counter != 1)
+        })
+        if (additionalPush)
         {
-            colorArray.push("rgba(0, 0, 0," + parseInt(opacityValues[i].value)/100 + ")")
-            borderArray.push("rgba(0, 0, 0, 1)")            
-        }
-    }
+            console.log("Push")
+            colorArray.push("rgba(0, 0, 0," + parseInt(opacityValues[colorValues.indexOf(inputColor)])/100 + ")")
+            borderArray.push("rgba(0, 0, 0, 1)")                
+        }    
+    })
 
     colorsArray = [colorArray, borderArray]
     return colorsArray
@@ -468,17 +572,16 @@ function createGraphColor () {
     var opacityValue = document.getElementById("opacity").value
     var color = ""
 
-    for (var i = 0; i < allColors.length; i++)
-    {
-        if (colorValue.toLowerCase() == allColors[i] && opacityValue == "")
+    colors.forEach( function (elem) {
+        if (colorValue.toLowerCase() == elem.color && opacityValue == "")
         {
-            color = "rgba(" + colorRGB[i] + ", 1)"
+            color = "rgba(" + elem.value + ", 1)"
         }
-        else if (colorValue.toLowerCase() == allColors[i] && opacityValue != "")
+        else if (colorValue.toLowerCase() == elem.color && opacityValue != "")
         {
-            color = "rgba(" + colorRGB[i] + ", " + opacityValue/100 + ")"
+            color = "rgba(" + elem.value + ", " + opacityValue/100 + ")"
         }
-    }
+    })
     if (color == "")
     {
         if (opacityValue != "")
@@ -490,6 +593,7 @@ function createGraphColor () {
             color = "rgba(0, 0, 0, 1)"
         }        
     }
+ 
 
     return color
 }
@@ -571,7 +675,7 @@ function createPieLabels() {
     for(var i = 0; i < labelsText.length; i++)
     {
         var percentage = Math.round((values[i]/sum) * 100)
-        pieLabelsArray.push(labelsText[i] + " " + percentage.toString() +"%")    
+        pieLabelsArray.push(labelsText[i] + ": " + percentage.toString() +"%")    
     }
 
     return pieLabelsArray
