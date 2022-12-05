@@ -7,56 +7,66 @@
         if you wanted to make a bar graph, type would be "Bar Graph"-->
 
         <title>{{type}}</title>
+        <script src= "/index.js" charset="utf-8" defer></script>
 
-        <link rel="stylesheet" href="graphStyles.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
-
-        <script src= "publish.js" charset="utf-8" defer></script>
-        <script src= "{{script}}" charset="utf-8" defer></script>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="jquery-3.6.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     </head>
     <body>
-        <a href="/homescreen.html">Back To Home</a>
-        <h2>{{type}} Creator</h2>    
+        {{> header titleText = type}}
+
+        <div id = "graph-body">
+            <div id = "graph-inputs">
+
+                <h2>Graph Specifications:</h2>        
+                
+                <div class = "input-boxes-stylings">
+                    <label>Title</label>
+                    <div>
+                        <input class="input-boxes" id="title" type="text">
+                    </div>
+                </div>
+                <div class = "input-boxes-stylings">
+                    <label>User's Name</label>
+                    <div>
+                        <input class="input-boxes" id="username" type="text">
+                    </div>                    
+                </div>
+            
+
+
+                <!--All of the inputs-->
+                {{#each inputs}}
+                    {{> input}}
+                {{/each}}
         
-        <div>
-            <label>Title</label>
-            <div>
-                <input id="title-input" type="text">
+            </div>
+
+            <div id = "chart-container">
+                <!--<canvas id = "myChart"></canvas> -->
+            </div> 
+
+            <!--This is where all of the specs are-->
+            <div id = "graph-specs">
+                <div id="initial-input-container">
+
+                    <!--All of the specs-->
+                    {{#each specs}}
+                        {{> spec}}
+                    {{/each}}
+
+                    <!--The submit button-->
+                    <button type="button" id="submit-button"><i class="fas fa-plus"></i></button>
+                    
+                </div>   
             </div>
         </div>
+        
 
-        <!--All of the inputs-->
-        {{#each inputs}}
-            {{> input}}
-        {{/each}}
-
-        <!--This is where all of the specs are-->
-        <div id = "graph-specs">
-        <div class="input-container">
-
-        <!--All of the specs-->
-        {{#each specs}}
-            {{> spec}}
-        {{/each}}
-
-        <!--The submit button-->
-        <button type="button" id="submit-button"><i class="fas fa-plus"></i></button>
-
-        </div>
-        </div>
-
-        {{{body}}}
-
+        
         <div>
             <button id="publish-button">Publish!</button>
-        </div>
+        </div>        
 
-            
-        <div id = "chart-container" class = "chart">
-            <canvas id = "myChart"></canvas>
-        </div>
+        
+
     </body>
 </html>

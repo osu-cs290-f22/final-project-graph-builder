@@ -1,0 +1,38 @@
+[
+    {
+        "title": "X Axis Label",
+        "iden": "xlabel",
+        "type": "text",
+        "extra": ""
+    },
+    {
+        "title": "Y Axis Label",
+        "iden": "ylabel",
+        "type": "text",
+        "extra": ""
+    },
+    {
+        "title": "Color",
+        "iden": "color",
+        "type": "text",
+        "extra": ""
+    },
+    {
+        "title": "Opacity",
+        "iden": "opacity",
+        "type": "range",
+        "extra": "max=\"100\" min=\"1\""
+    },
+    {
+        "title": "Special Symbol ($, USD, etc.)",
+        "iden": "added-symbol",
+        "type": "text",
+        "extra": ""
+    },
+    {
+        "title": "Show Line?",
+        "iden": "line-checkbox",
+        "type": "checkbox",
+        "extra": ""
+    }
+]

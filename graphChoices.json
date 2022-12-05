@@ -1,0 +1,26 @@
+[
+    {
+        "chart": "Scatter Plot",
+        "infoText": "You can plot individual points, or draw a line in between them!",
+        "icon": "fa-solid fa-circle",
+        "graphLink": "/scatter"
+    },
+    {
+        "chart": "Line Chart",
+        "infoText": "You can plot a line based on labels and data!",
+        "icon": "fa-solid fa-chart-line",
+        "graphLink": "/line"
+    },
+    {
+        "chart": "Bar Chart",
+        "infoText": "You can plot bars representing values based on labels!",
+        "icon": "fa-solid fa-chart-simple",
+        "graphLink": "/bar"
+    },
+    {
+        "chart": "Pie Chart",
+        "infoText": "You can plot a pie chart with sections representing different values!",
+        "icon": "fa-solid fa-chart-pie",
+        "graphLink": "/pie"
+    }
+]

@@ -1,23 +1,24 @@
-<div class="buttons-container">
-    <div class="options-buttons">
-        <button class="add-graph-button">Add Graph Derivative</button>
-        <button class="like-button">Like</button>
-        <div class="like-counter-container">
-            <p class="like-counter">{{likeCount}}</p>                                
-        </div>
+<div class="graph-box" id = "{{id}}">
+    <div class="buttons-container">
+        <div class="options-buttons">
+            <button class="add-graph-button">Add A New Graph Based On This One!</button>
+            <button class="like-button"><i class="fa-solid fa-thumbs-up"></i></button>
+            <div class="like-counter-container">
+                <p class="like-counter">{{likes}}</p>                                
+            </div>
 
-    </div>                        
+        </div>                        
     </div>
 
     <div class="image-box">
-    <img class="image-restrictions" src="{{graph}}" alt="Potential Graph Image">
+        <img class="image-restrictions" src="{{graph}}" alt="{{title}}">
     </div>
 
     <div class="info-text">
-    <div class="text-box">
-        <p class="center-text">{{title}}</p>
-        <p class="center-text">Published by {{personName}}</p>
-        <p class="center-text">{{month}}/{{day}}/{{year}}</p>
-        
+        <div class="text-box">
+            <p class="center-text title">{{title}}</p>
+            <p class="center-text author">Published by {{userName}}</p>
+            <p class="center-text date">{{date}}</p>
+        </div>
     </div>
 </div>

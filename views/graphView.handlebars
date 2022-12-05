@@ -3,31 +3,67 @@
     <head>
         <meta charset="utf-8">
         <title>View Other Graphs</title>
-
-        <link rel="stylesheet" href="viewer.css">
         <script src="viewer.js" charset="utf-8" defer></script>
 
     </head>
     <body>
+        {{> header}}
+
         <div>
-            <div>
-                <h1>Graphs:</h1>
-                <h2>Look at Other Users Who Have Created Graphs:</h2>                
+            <div id="filter-box">
+                <div class="filter-div">
+                    <label class="filter-box">Search for Title</label>
+                    <div>
+                        <input id="filter-title"  type="text">
+                    </div>                    
+                </div>
+
+                <div class="filter-div">
+                    <label class="filter-box">Search for Author</label>
+                    <div>
+                        <input id = "filter-author" type="text">
+                    </div>                    
+                </div>
+
+                <div class="filter-div">
+                    <label class="filter-box">Time Search</label>
+                    <div class = "date-boxes-container">
+                        <input class = "small-boxes" placeholder="Month" type="text">
+                        <input class = "small-boxes" placeholder="Day" type="number">
+                        <input class = "small-boxes" placeholder="Year" type="number">
+                    </div>
+                    <div class="small-text">
+                        <p>To</p>
+                    </div>
+                    <div class = "date-boxes-container">
+                        <input class = "small-boxes" placeholder="Month" type="text">
+                        <input class = "small-boxes" placeholder="Day" type="number">
+                        <input class = "small-boxes" placeholder="Year" type="number">
+                    </div>
+                </div>
+                <div class="filter-div">
+                    <label class="filter-box">Sort By:</label>
+                    <div>
+                        <select id="sort-by">
+                           <option selected>Newest</option> 
+                           <option>Oldest</option> 
+                           <option>Most Liked</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="filter-button-container">
+                    <button id="filter-button">Search</button>                    
+                </div>
             </div>
 
-            <div id="all-graphs">
-                <div class="graph-box">
+            <div id="all-posts">
 
                 {{#each posts}}
                     {{> post}}
                 {{/each}}
-
-
-
-                </div>                
+               
             </div>
         </div>
-
-        {{{body}}}
     </body>
 </html>

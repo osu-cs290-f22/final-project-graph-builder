@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Graph.com</title>
+
+  </head>
+  <body>
+
+    <header>
+
+      <h1 class="site-title"><a href="#">Welcome to Graph.com!</a></h1>
+      <h2 class = "sub-title">Create a Custom Graph!</h2>
+
+    </header>
+
+    <main class="content">
+
+        <h2>What Kind of Graph Do You Want to Make?</h2>
+
+        <div class = "buttons">
+          {{#each graphChoices}}
+              {{> graphButton}}
+          {{/each}}
+        </div>
+    </main>
+
+    <a href="/view"><button id="view-others-button" class="action-button"> <i class="fa-solid fa-chart-simple"></i> <p id = "view-text">View Other's Graphs</p></button></a>
+
+  </body>
+</html>

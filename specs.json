@@ -1,0 +1,38 @@
+[
+    {
+        "label": "Name",
+        "type": "text",
+        "iden": "section-name",
+        "extra": ""
+    },
+    {
+        "label": "X-Value",
+        "type": "number",
+        "iden": "x-value-boxes",
+        "extra": ""
+    },
+    {
+        "label": "Y-Value",
+        "type": "number",
+        "iden": "y-value-boxes",
+        "extra": ""
+    },
+    {
+        "label": "Color",
+        "type": "text",
+        "iden": "section-color",
+        "extra": ""
+    },
+    {
+        "label": "Value",
+        "type": "number",
+        "iden": "section-value",
+        "extra": ""
+    },
+    {
+        "label": "Opacity",
+        "type": "range",
+        "iden": "section-opacity",
+        "extra": "max=\"100\" min=\"1\""
+    }
+]
